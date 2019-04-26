@@ -1,4 +1,5 @@
 *Quick links :*
+***
 [Home](/README.md) - [Part 1](/part1/README.md) - [Part 2](/part2/README.md) - [Part 3](/part3/README.md) - [**Resources**](/additionalResources/README.md)
 ***
 
@@ -8,7 +9,7 @@ This section provides additional information, will get you up to speed with the 
 
 ## Prerequisites and setup
 
-Before you start the workshop you need to have the required hardware and software installed and have you IBM public cloud account.  Full details can be found on the [Setup](/additionalResources/PREREQUISITES_AND_SETUP.md) page.
+Before you start the workshop you need to have the required hardware and software installed and have your IBM public cloud account.  Full details can be found on the [Setup](/additionalResources/PREREQUISITES_AND_SETUP.md) page.
 
 ## Headerless setup
 
@@ -16,4 +17,5 @@ When setting up a Raspberry Pi you need to access the Pi to do the initial setup
 
 ***
 *Quick links :*
+***
 [Home](/README.md) - [Part 1](/part1/README.md) - [Part 2](/part2/README.md) - [Part 3](/part3/README.md) - [**Resources**](/additionalResources/README.md)
