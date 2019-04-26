@@ -21,7 +21,7 @@ After completing this workshop you should be able to :
 
 To complete this workshop you need some hardware and some prerequisite knowledge.  Mode details about the prerequisites is available in the [Additional Resources section](/additionalResources/README.md) :
 
-- A minimum of 2 raspberry Pis (3 Model B(+)) additional Pis can be added to extend the mesh, which can also include Pi Zero W.  Power supply for Raspberry Pis and optionally keyboard, mouse and monitor if not doing headerless setup (details in [Additional Resources](/additionalResources/README.md))
+- A minimum of 2 raspberry Pis (3 Model B(+)) additional Pis can be added to extend the mesh, which can also include Pi Zero W.  You also need to have an SD card to hold the filesystem and a power supply for each Raspberry Pi and optionally a keyboard, mouse and monitor if not doing headerless setup (details in [Additional Resources](/additionalResources/README.md))
 - A laptop or desktop computer with a modern OS (Linux, MacOS or Windows - windows users will need additional software to communicate with Raspberry Pis if using [headerless setup](/additionalResources/HEADERLESS_SETUP.md))
 - Ability to flash the SD card for the raspberry Pi (SD card slot in laptop or USB adapter and appropriate software)
 - Ethernet network, cables and connection to connect Laptop to Ethernet (if this isn't available then WiFi is also possible)
@@ -29,6 +29,7 @@ To complete this workshop you need some hardware and some prerequisite knowledge
 - Optional WiFi USB dongle(s) if want to enable WiFi rather than Ethernet connectivity
 - DHT11 or DHT22 temperature and humidity sensor and an addressable RGB LED.  Additional details about of these components are available in the [Additional Resources section](/additionalResources/README.md)
 - You should be able to setup a Raspberry Pi and get access to a command line on the Pi (help available in the [Additional Resouces section](/additionalResources/README.md))
+- You should be familiar with basic linux command line commands and be able to edit a text file on the command line.  If you need help there is a section on the [raspberry pi site](https://www.raspberrypi.org/documentation/linux/usage/text-editors.md) and there are plenty of tutorials available with a quick web search.  For new users, nano will be an easier option than vi and  remember **^x** means hold the control key then press x.
 - An IBM public Cloud account (the free, lite account is OK, if you have resources avaialble in the account to deploy an application)
 
 ## Outline

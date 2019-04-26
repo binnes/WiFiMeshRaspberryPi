@@ -7,11 +7,13 @@
 
 In the first part of the workshop you will create a mesh network and then convert one of the nodes into a gateway to give all mesh nodes access to the internet.  You will also enable a non-mesh device, such as your computer to access the internet via the mesh, by converting another mesh node to a bridge node.
 
+Before starting this part of the workshop please ensure you have completed all the [prerequisites](/additionalResources/PREREQUISITES_AND_SETUP.md).
+
 Work through each of the sections in order to complete part 1:
 
 ## What is a mesh network?
 
-Most wireless networks are formed in a star topology but a Mesh network is where a number of devices form a network without needing a central hub device.  Explore mesh networks further in [this section](MESH.md) 
+Most wireless networks are formed in a star topology but a Mesh network is where a number of devices form a network without needing a central hub device.  Explore mesh networks further in [this section](MESH.md)
 
 ## Create a mesh network over WiFi
 
