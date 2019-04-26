@@ -22,7 +22,8 @@ You need to complete the following steps on all the Raspberry Pis that you want 
 3. If you are doing a [headerless setup](/additionalResources/HEADERLESS_SETUP.md) insert the SD card back into your computer.  Open a command line or terminal on your computer and change to the directory where the SD card boot partition is mounted and create an empty file in the boot partition called ssh:
     - *Linux* : ```touch ssh```
     - *MacOS* : ```touch ssh```
-    - *Windows* :  ```type NUL >> ssh```
+    - *Windows command prompt* :  ```type NUL >> ssh```
+    - *Windows PowerShell* : ```echo $null >> ssh```
 
     *optionally, create the wpa_supplicant.conf file or modify the cmdline.txt and config.txt files if you need OTG mode or WiFi connectivity*
 
