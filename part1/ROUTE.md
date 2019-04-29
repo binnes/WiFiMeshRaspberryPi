@@ -243,7 +243,7 @@ To verify that your mesh network is working you should have your laptop connecte
     b8:27:eb:01:d4:bb   bi-raspimesh03
     ```
 
-now when you run ```sudo batctl n``` you now get:
+    now when you run ```sudo batctl n``` you now get:
 
     ```text
     [B.A.T.M.A.N. adv 2017.3, MainIF/MAC: wlan0/b8:27:eb:8e:ec:6c (bat0/ba:bf:0a:fd:33:e5 BATMAN_IV)]
