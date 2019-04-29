@@ -121,9 +121,6 @@ On the selected bridge node run the following on a command line:
     auto eth0
     allow-hotplug eth0
     iface eth0 inet manual
-
-    ```text
-    denyinterfaces wlan0 eth0 bat0
     ```
 
 4. Modify the /etc/dhcpcd.conf file as root use and change the last line to:
