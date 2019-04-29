@@ -7,6 +7,8 @@
 
 Welcome to this workshop, where you will create a mesh network over WiFI using Raspberry Pis.  After creating the mesh you will use it to extend an existing network, then use the mesh to connect sensors to the Internet and allow other devices (not participating in the mesh) to connect to the Internet via the mesh network.
 
+![mesh image](images/pimesh.png)
+
 ## Expected outcomes
 
 After completing this workshop you should be able to :

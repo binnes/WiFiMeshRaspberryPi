@@ -33,9 +33,10 @@ You need to complete the following steps on all the Raspberry Pis that you want 
 7. On the Raspberry Pi command line issue the command ```sudo raspi-config``` and then go through and change the following settings:
     - Change the user password (don't forget it, as you will need it everytime you remotely connect to the Pi)
     - Network Options - Hostname
+    - Localisation Options - set Locale, Timezone and WiFi country to match your location
     - Network Option - WiFi.  If your pi is not connected to the internet already, use this option to setup WiFi connectivity to ensure your Pi has access to the internet.
     - Boot Options - Desktop/CLI - choose Console Autologin
-    - Localisation Options - set Locale, Timezone and WiFi country to match your location
+    - interfacing Options - SSH, ensure SSH server is enabled
 
     Exit raspi-config, don't reboot yet.
 8. Issue command ```sudo apt-get update && sudo apt-get upgrade -y```
@@ -43,7 +44,9 @@ You need to complete the following steps on all the Raspberry Pis that you want 
 
 ## Setup batman-adv
 
-Once the Pi has rebooted, get to the command line (remember your pi now has a new hostname and the pi user has a new password that you set in the previous section).  Perform the following on the pi command line:
+Once the Pi has rebooted, get to the command line (remember your pi now has a new hostname and the pi user has a new password that you set in the previous section).  If connecting via ssh, the ssh command line command is ```ssh pi@hostname.local```, replacing **hostname** with the name you specified.
+
+Perform the following on the pi command line:
 
 1. To manage the mesh network, a utility called **batctl** needs to be installed.  This can be done using command ```sudo apt-get install -y batctl```
 2. Using your preferred editor create a file ~/start-batman-adv.sh
@@ -54,17 +57,59 @@ Once the Pi has rebooted, get to the command line (remember your pi now has a ne
 
     the file should contain the following:
 
-    ```bash
+    ```text
     #!/bin/bash
-    # Tell batman-adv which interface to use
+    # batman-adv interface to use
     sudo batctl if add wlan0
+    sudo ifconfig bat0 mtu 1468
 
-    # Activates the interfaces for batman-adv
+    # Activates batman-adv interfaces
     sudo ifconfig wlan0 up
     sudo ifconfig bat0 up
     ```
 
 3. Make the start-batman-adv.sh file executable with command ```chmod +x ~/start-batman-adv.sh```
+4. Create the network interface definition for the bat0 interface by creating a file as root user e.g.
+
+    - sudo vi /etc/network/interfaces.d/bat0
+    - sudo nano /etc/network/interfaces.d/bat0
+
+    then add the following content:
+    ```text
+    auto bat0
+    iface bat0 inet auto
+        pre-up /usr/sbin/batctl if add wlan0
+    ```
+
+5. Create the network interface definition for the wlan0 interface by creating a file as root user e.g.
+
+    - sudo vi /etc/network/interfaces.d/wlan0
+    - sudo nano /etc/network/interfaces.d/wlan0
+
+    then add the following content:
+    ```text
+    auto wlan0
+    iface wlan0 inet manual
+        wireless-channel 1 
+        wireless-essid call-code-mesh
+        wireless-mode ad-hoc
+        wireless-ap 01:12:23:34:45:56
+    ```
+
+    You can replace 
+    
+    - the channel number with a [valid 2.4 GHz WiFi channel number for your region](https://en.wikipedia.org/wiki/List_of_WLAN_channels) (most regions support channels 1 to 11)
+    - the essid with a network name of your choosing
+    - the ap with any valid address (6, 2 digit hexadecimal numbers, separated by colons)
+
+    However, these values must be the same on ALL devices that will form your mesh network.
+
+6. Ensure the batman-adv kernel module is loaded at boot time by issuing the following command : ```echo 'batman-adv' | sudo tee --append /etc/modules```
+7. Stop the DHCP process from trying to manage the wireless lan interface by issuing the following command : ```echo 'denyinterfaces wlan0' | sudo tee --append /etc/dhcpcd.conf```
+8. make sure the startup script gets called by issuing the following command : ```echo "$(pwd)/start-batman-adv.sh" >> ~/.bashrc```
+
+You now have all the raspberry pi systems configured to join the mesh, so before rebooting them proceed to the [next section](ROUTE.md) to setup access to the Internet and also enable a bridge.
+
 ***
 *Quick links :*
 ***
