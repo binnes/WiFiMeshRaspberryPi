@@ -324,18 +324,18 @@ with the hostname of your bridge raspberry pi.
 
 Once your laptop is connected to the bridge node and has an IP address in the mesh network it will be able to directly connect to all the nodes in the mesh and also access any computer on the home/office network and the Internet.  Try issuing command ```ping www.ibm.com -c 5```, where you should get an response similar to:
 
-    ```text
-    PING e2874.dscx.akamaiedge.net (23.198.97.50) 56(84) bytes of data.
-    64 bytes from a23-198-97-50.deploy.static.akamaitechnologies.com (23.198.97.50): icmp_seq=1 ttl=57 time=19.6 ms
-    64 bytes from a23-198-97-50.deploy.static.akamaitechnologies.com (23.198.97.50): icmp_seq=2 ttl=57 time=21.5 ms
-    64 bytes from a23-198-97-50.deploy.static.akamaitechnologies.com (23.198.97.50): icmp_seq=3 ttl=57 time=14.7 ms
-    64 bytes from a23-198-97-50.deploy.static.akamaitechnologies.com (23.198.97.50): icmp_seq=4 ttl=57 time=14.7 ms
-    64 bytes from a23-198-97-50.deploy.static.akamaitechnologies.com (23.198.97.50): icmp_seq=5 ttl=57 time=15.5 ms
+```text
+PING e2874.dscx.akamaiedge.net (23.198.97.50) 56(84) bytes of data.
+64 bytes from a23-198-97-50.deploy.static.akamaitechnologies.com (23.198.97.50): icmp_seq=1 ttl=57 time=19.6 ms
+64 bytes from a23-198-97-50.deploy.static.akamaitechnologies.com (23.198.97.50): icmp_seq=2 ttl=57 time=21.5 ms
+64 bytes from a23-198-97-50.deploy.static.akamaitechnologies.com (23.198.97.50): icmp_seq=3 ttl=57 time=14.7 ms
+64 bytes from a23-198-97-50.deploy.static.akamaitechnologies.com (23.198.97.50): icmp_seq=4 ttl=57 time=14.7 ms
+64 bytes from a23-198-97-50.deploy.static.akamaitechnologies.com (23.198.97.50): icmp_seq=5 ttl=57 time=15.5 ms
 
-    --- e2874.dscx.akamaiedge.net ping statistics ---
-    5 packets transmitted, 5 received, 0% packet loss, time 4007ms
-    rtt min/avg/max/mdev = 14.784/17.265/21.575/2.822 ms
-    ```
+--- e2874.dscx.akamaiedge.net ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4007ms
+rtt min/avg/max/mdev = 14.784/17.265/21.575/2.822 ms
+```
 
 which shows your laptop is accessing the home/office network and the internet.
 
