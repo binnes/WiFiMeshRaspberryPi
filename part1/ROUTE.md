@@ -295,8 +295,8 @@ with the hostname of your bridge raspberry pi.
 5. Issue command ```sudo brctl show``` to show the details of defined bridge interfaces.  The response should show that bat0 and eth0 are configured in the bridge interface:
 
     ```text
-    bridge name	bridge id	    STP enabled	interfaces
-    br0		8000.b827ebe818b0	no		bat0
+    bridge name bridge id       STP enabled interfaces
+    br0     8000.b827ebe818b0   no      bat0
                                         eth0
     ```
 
@@ -320,7 +320,7 @@ Once your laptop is connected to the bridge node and has an IP address in the me
     From the home/office network you can only access the gateway device.  It is not possible to see the other nodes making up the mesh or devices bridged onto the mesh.  If you want to contact those devices then log onto the gateway node, then you can use the gateway device command line to access all the mesh and bridged devices.
 
     When you are connected via the mesh network you may find some services do not work when on the mesh, such as some wireless print services or media services.  This is because they rely on network broadcast traffic.  
-    
+
     Broadcast traffic from the home/office network does not get sent to the mesh network.  If you need this behaviour then you can replace the gateway node with another bridge node to bridge the mesh network to your home/office network.  Bridging to your mesh network is not advisable if your home/office netowrk is a busy network, as you may flood the mesh network.
 
 ***
