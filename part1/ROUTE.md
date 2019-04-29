@@ -117,7 +117,7 @@ On the selected bridge node run the following on a command line:
 
 3. Create an interface config for the eth0 interface.  This will allow the ethernet port to be *hotplugged*, which means the ethernet cable can be connected and disconnected.  Do this by creating file /etc/network/interfaces.d/eth0 as root user and setting the content to:
 
-    ```
+    ```text
     auto eth0
     allow-hotplug eth0
     iface eth0 inet manual
@@ -128,7 +128,7 @@ On the selected bridge node run the following on a command line:
 
 4. Modify the /etc/dhcpcd.conf file as root use and change the last line to:
 
-    ```
+    ```text
     denyinterfaces wlan0 eth0 bat0
     ```
 
@@ -215,10 +215,10 @@ To verify that your mesh network is working you should have your laptop connecte
 
 3. Issue command ```iwconfig``` to show the wireless interfaces on the device.  You should see:
 
-    ```
+    ```text
     wlan0   IEEE 802.11  ESSID:"call-code-mesh"  
-            Mode:Ad-Hoc  Frequency:2.462 GHz  Cell: 3A:BC:74:3B:A1:D9   
-            Tx-Power=31 dBm   
+            Mode:Ad-Hoc  Frequency:2.462 GHz  Cell: 3A:BC:74:3B:A1:D9
+            Tx-Power=31 dBm
             Retry short limit:7   RTS thr:off   Fragment thr:off
             Power Management:on
     ```
@@ -234,8 +234,8 @@ To verify that your mesh network is working you should have your laptop connecte
     ```text
     [B.A.T.M.A.N. adv 2017.3, MainIF/MAC: wlan0/b8:27:eb:8e:ec:6c (bat0/ba:bf:0a:fd:33:e5 BATMAN_IV)]
     IF             Neighbor              last-seen
-    wlan0	  b8:27:eb:bd:4d:e5    0.980s
-    wlan0	  b8:27:eb:01:d4:bb    0.730s
+    wlan0     b8:27:eb:bd:4d:e5    0.980s
+    wlan0     b8:27:eb:01:d4:bb    0.730s
     ```
 
 6. Now connect your laptop to the Ethernet port on the bridge node.  Give it a short while to get an IP address then check that the laptop has got a 192.168.199.x IP address, this will verify that your laptop is able to use the mesh to get to the gateway node, where the DHCP server is running.
