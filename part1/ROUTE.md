@@ -230,9 +230,9 @@ To verify that your mesh network is working you should have your laptop connecte
 
     ```text
     [B.A.T.M.A.N. adv 2017.3, MainIF/MAC: wlan0/b8:27:eb:8e:ec:6c (bat0/ba:bf:0a:fd:33:e5 BATMAN_IV)]
-    IF             Neighbor              last-seen
-    wlan0     b8:27:eb:bd:4d:e5    0.980s
-    wlan0     b8:27:eb:01:d4:bb    0.730s
+    IF             Neighbor             last-seen
+        wlan0       b8:27:eb:bd:4d:e5   0.980s
+        wlan0       b8:27:eb:01:d4:bb   0.730s
     ```
 
 6. When using the batctl command it is not very helpful to show mac addresses for each of the mesh nodes.  It is possible to create a file which will map a macaddress to a hostname.  Create a file /etc/bat-hosts as root user and add the mac addresses and host names of all your mesh nodes.  The mac address used is the ether value of the wlan0 interface node on each node.  A sample /etc/bat-hosts file looks like:
@@ -247,9 +247,9 @@ To verify that your mesh network is working you should have your laptop connecte
 
     ```text
     [B.A.T.M.A.N. adv 2017.3, MainIF/MAC: wlan0/b8:27:eb:8e:ec:6c (bat0/ba:bf:0a:fd:33:e5 BATMAN_IV)]
-    IF             Neighbor              last-seen
-            wlan0        bi-raspimesh02    0.890s
-            wlan0        bi-raspimesh03    0.660s
+    IF             Neighbor             last-seen
+        wlan0       bi-raspimesh02      0.890s
+        wlan0       bi-raspimesh03      0.660s
     ```
 
     Create the /etc/bat-hosts file on all of the mesh nodes if you want the mac addresses resolved to hostnames in batctl commands.
