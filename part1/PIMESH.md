@@ -30,7 +30,7 @@ You need to complete the following steps on all the Raspberry Pis that you want 
     Eject the SD card from your operating system and remove the card from your computer.
 4. Insert the SD card into the Raspberry Pi and then power on the Raspberry Pi.
 5. Login to the pi with user pi and password raspberry.  If using headerless setup then connect via ssh.  The hostname on first boot is raspberrypi.local.  
-7. On the Raspberry Pi command line issue the command ```sudo raspi-config``` and then go through and change the following settings:
+6. On the Raspberry Pi command line issue the command ```sudo raspi-config``` and then go through and change the following settings:
     - Change the user password (don't forget it, as you will need it everytime you remotely connect to the Pi)
     - Network Options - Hostname
     - Localisation Options - set Locale, Timezone and WiFi country to match your location
@@ -39,8 +39,8 @@ You need to complete the following steps on all the Raspberry Pis that you want 
     - interfacing Options - SSH, ensure SSH server is enabled
 
     Exit raspi-config, don't reboot yet.
-8. Issue command ```sudo apt-get update && sudo apt-get upgrade -y```
-9. Reboot the Raspberry Pi with command ```sudo reboot -n```
+7. Issue command ```sudo apt-get update && sudo apt-get upgrade -y```
+8. Reboot the Raspberry Pi with command ```sudo reboot -n```
 
 ## Setup batman-adv
 
@@ -75,6 +75,7 @@ Perform the following on the pi command line:
     - sudo nano /etc/network/interfaces.d/bat0
 
     then add the following content:
+
     ```text
     auto bat0
     iface bat0 inet auto
@@ -87,17 +88,18 @@ Perform the following on the pi command line:
     - sudo nano /etc/network/interfaces.d/wlan0
 
     then add the following content:
+
     ```text
     auto wlan0
     iface wlan0 inet manual
-        wireless-channel 1 
+        wireless-channel 1
         wireless-essid call-code-mesh
         wireless-mode ad-hoc
         wireless-ap 01:12:23:34:45:56
     ```
 
-    You can replace 
-    
+    You can replace:
+
     - the channel number with a [valid 2.4 GHz WiFi channel number for your region](https://en.wikipedia.org/wiki/List_of_WLAN_channels) (most regions support channels 1 to 11)
     - the essid with a network name of your choosing
     - the ap with any valid address (6, 2 digit hexadecimal numbers, separated by colons)
