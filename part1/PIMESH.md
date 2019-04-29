@@ -63,6 +63,9 @@ Perform the following on the pi command line:
     sudo batctl if add wlan0
     sudo ifconfig bat0 mtu 1468
 
+    # Tell batman-adv this is a gateway client
+    sudo batctl gw_mode client
+
     # Activates batman-adv interfaces
     sudo ifconfig wlan0 up
     sudo ifconfig bat0 up
@@ -71,8 +74,8 @@ Perform the following on the pi command line:
 3. Make the start-batman-adv.sh file executable with command ```chmod +x ~/start-batman-adv.sh```
 4. Create the network interface definition for the bat0 interface by creating a file as root user e.g.
 
-    - sudo vi /etc/network/interfaces.d/bat0
-    - sudo nano /etc/network/interfaces.d/bat0
+    - ```sudo vi /etc/network/interfaces.d/bat0```
+    - ```sudo nano /etc/network/interfaces.d/bat0```
 
     then add the following content:
 
@@ -84,8 +87,8 @@ Perform the following on the pi command line:
 
 5. Create the network interface definition for the wlan0 interface by creating a file as root user e.g.
 
-    - sudo vi /etc/network/interfaces.d/wlan0
-    - sudo nano /etc/network/interfaces.d/wlan0
+    - ```sudo vi /etc/network/interfaces.d/wlan0```
+    - ```sudo nano /etc/network/interfaces.d/wlan0```
 
     then add the following content:
 
@@ -109,8 +112,9 @@ Perform the following on the pi command line:
 6. Ensure the batman-adv kernel module is loaded at boot time by issuing the following command : ```echo 'batman-adv' | sudo tee --append /etc/modules```
 7. Stop the DHCP process from trying to manage the wireless lan interface by issuing the following command : ```echo 'denyinterfaces wlan0' | sudo tee --append /etc/dhcpcd.conf```
 8. make sure the startup script gets called by issuing the following command : ```echo "$(pwd)/start-batman-adv.sh" >> ~/.bashrc```
+9. If this pi will not be a bridge or gateway node then shut it down using command ```sudo shutdown -h now```
 
-You now have all the raspberry pi systems configured to join the mesh, so before rebooting them proceed to the [next section](ROUTE.md) to setup access to the Internet and also enable a bridge.
+You now have all the raspberry pi systems configured to join the mesh, so proceed to the [next section](ROUTE.md) to setup access to the Internet and also enable a bridge.
 
 ***
 *Quick links :*
