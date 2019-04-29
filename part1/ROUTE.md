@@ -235,7 +235,70 @@ To verify that your mesh network is working you should have your laptop connecte
     wlan0     b8:27:eb:01:d4:bb    0.730s
     ```
 
-6. Now connect your laptop to the Ethernet port on the bridge node.  Give it a short while to get an IP address then check that the laptop has got a 192.168.199.x IP address, this will verify that your laptop is able to use the mesh to get to the gateway node, where the DHCP server is running.
+### Verify the bridge
+
+1. Now connect your laptop to the Ethernet port on the bridge node.  
+2. Give it a short while to get an IP address then check that the laptop has got a 192.168.199.x IP address, this will verify that your laptop is able to use the mesh to get to the gateway node, where the DHCP server is running.  If you get a 169.x.x.x network address then there is an issue with the bridge.
+3. Connect to the bridge pi using ```ssh pi@hostname.local```, changing **hostname**
+with the hostname of your bridge raspberry pi.
+4. Issue command ifconfig to see all the interfaces on the bridge pi.  You should see something similar to:
+
+    ```text
+        bat0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1468
+                inet6 fe80::e838:85ff:fe06:8265  prefixlen 64  scopeid 0x20<link>
+                ether ea:38:85:06:82:65  txqueuelen 1000  (Ethernet)
+                RX packets 16589  bytes 9220389 (8.7 MiB)
+                RX errors 0  dropped 0  overruns 0  frame 0
+                TX packets 14460  bytes 1905164 (1.8 MiB)
+                TX errors 0  dropped 19 overruns 0  carrier 0  collisions 0
+
+        br0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1468
+                inet 192.168.199.34  netmask 255.255.255.0  broadcast 192.168.199.255
+                inet6 fe80::4e41:fc4e:b18c:ffd0  prefixlen 64  scopeid 0x20<link>
+                ether b8:27:eb:e8:18:b0  txqueuelen 1000  (Ethernet)
+                RX packets 3261  bytes 213663 (208.6 KiB)
+                RX errors 0  dropped 0  overruns 0  frame 0
+                TX packets 1053  bytes 208548 (203.6 KiB)
+                TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+        eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+                inet6 fe80::ba27:ebff:fee8:18b0  prefixlen 64  scopeid 0x20<link>
+                ether b8:27:eb:e8:18:b0  txqueuelen 1000  (Ethernet)
+                RX packets 15714  bytes 2010018 (1.9 MiB)
+                RX errors 0  dropped 0  overruns 0  frame 0
+                TX packets 16090  bytes 9413607 (8.9 MiB)
+                TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+        lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+                inet 127.0.0.1  netmask 255.0.0.0
+                inet6 ::1  prefixlen 128  scopeid 0x10<host>
+                loop  txqueuelen 1000  (Local Loopback)
+                RX packets 3  bytes 360 (360.0 B)
+                RX errors 0  dropped 0  overruns 0  frame 0
+                TX packets 3  bytes 360 (360.0 B)
+                TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+        wlan0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+                inet6 fe80::ba27:ebff:febd:4de5  prefixlen 64  scopeid 0x20<link>
+                ether b8:27:eb:bd:4d:e5  txqueuelen 1000  (Ethernet)
+                RX packets 65722  bytes 11991421 (11.4 MiB)
+                RX errors 0  dropped 0  overruns 0  frame 0
+                TX packets 39946  bytes 4886290 (4.6 MiB)
+                TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+    ```
+
+    Notice:
+
+    - The br0 interface has an IP address in the mesh network range.
+    - The bat0, eth0 and wlan0 interfaces have no IP address assigned.
+
+5. Issue command ```sudo brctl show``` to show the details of defined bridge interfaces.  The response should show that bat0 and eth0 are configured in the bridge interface:
+
+    ```text
+    bridge name	bridge id	    STP enabled	interfaces
+    br0		8000.b827ebe818b0	no		bat0
+                                        eth0
+    ```
 
 Once your laptop is connected to the bridge node and has an IP address in the mesh network it will be able to directly connect to all the nodes in the mesh and also access any computer on the home/office network and the Internet.  Try issuing command ```ping www.ibm.com -c 5```, where you should get an response similar to:
 
@@ -252,11 +315,13 @@ Once your laptop is connected to the bridge node and has an IP address in the me
     rtt min/avg/max/mdev = 14.784/17.265/21.575/2.822 ms
     ```
 
-    which shows your laptop is accessing the network.
+    which shows your laptop is accessing the home/office network and the internet.
 
-    From the home/office network you can only access the gateway.  It is not possible to see the other nodes making up the mesh or devices bridged onto the mesh.  If you want to contact those devices then log onto the gateway node, then you can use the gateway node to access all the mesh and bridged devices.
+    From the home/office network you can only access the gateway device.  It is not possible to see the other nodes making up the mesh or devices bridged onto the mesh.  If you want to contact those devices then log onto the gateway node, then you can use the gateway device command line to access all the mesh and bridged devices.
 
-    When on the mesh network you may find some services do not work when on the mesh.  This is because broadcast traffic from the home/office network does not get sent to the mesh network.  If you need this behaviour then you can replace the gateway node with another bridge node, to bridge the mesh network to your home/office network, but this is not advisable if your home/office netowrk is a busy network, as you may flood the mesh.
+    When you are connected via the mesh network you may find some services do not work when on the mesh, such as some wireless print services or media services.  This is because they rely on network broadcast traffic.  
+    
+    Broadcast traffic from the home/office network does not get sent to the mesh network.  If you need this behaviour then you can replace the gateway node with another bridge node to bridge the mesh network to your home/office network.  Bridging to your mesh network is not advisable if your home/office netowrk is a busy network, as you may flood the mesh network.
 
 ***
 *Quick links :*
