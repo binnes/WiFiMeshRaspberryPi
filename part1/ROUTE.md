@@ -337,13 +337,13 @@ Once your laptop is connected to the bridge node and has an IP address in the me
     rtt min/avg/max/mdev = 14.784/17.265/21.575/2.822 ms
     ```
 
-    which shows your laptop is accessing the home/office network and the internet.
+which shows your laptop is accessing the home/office network and the internet.
 
-    From the home/office network you can only access the gateway device.  It is not possible to see the other nodes making up the mesh or devices bridged onto the mesh.  If you want to contact those devices then log onto the gateway node, then you can use the gateway device command line to access all the mesh and bridged devices.
+From the home/office network you can only access the gateway device.  It is not possible to see the other nodes making up the mesh or devices bridged onto the mesh.  If you want to contact those devices then log onto the gateway node, then you can use the gateway device command line to access all the mesh and bridged devices.
 
-    When you are connected via the mesh network you may find some services do not work when on the mesh, such as some wireless print services or media services.  This is because they rely on network broadcast traffic.  
+When you are connected via the mesh network you may find some services do not work when on the mesh, such as some wireless print services or media services.  This is because they rely on network broadcast traffic.  
 
-    Broadcast traffic from the home/office network does not get sent to the mesh network.  If you need this behaviour then you can replace the gateway node with another bridge node to bridge the mesh network to your home/office network.  Bridging to your mesh network is not advisable if your home/office netowrk is a busy network, as you may flood the mesh network.
+Broadcast traffic from the home/office network does not get sent to the mesh network.  If you need this behaviour then you can replace the gateway node with another bridge node to bridge the mesh network to your home/office network.  Bridging to your mesh network is not advisable if your home/office netowrk is a busy network, as you may flood the mesh network.
 
 ***
 *Quick links :*
