@@ -235,6 +235,25 @@ To verify that your mesh network is working you should have your laptop connecte
     wlan0     b8:27:eb:01:d4:bb    0.730s
     ```
 
+6. When using the batctl command it is not very helpful to show mac addresses for each of the mesh nodes.  It is possible to create a file which will map a macaddress to a hostname.  Create a file /etc/bat-hosts as root user and add the mac addresses and host names of all your mesh nodes.  The mac address used is the ether value of the wlan0 interface node on each node.  A sample /etc/bat-hosts file looks like:
+
+    ```text
+    b8:27:eb:8e:ec:6c   bi-raspimesh01
+    b8:27:eb:bd:4d:e5   bi-raspimesh02
+    b8:27:eb:01:d4:bb   bi-raspimesh03
+    ```
+
+now when you run ```sudo batctl n``` you now get:
+
+    ```text
+    [B.A.T.M.A.N. adv 2017.3, MainIF/MAC: wlan0/b8:27:eb:8e:ec:6c (bat0/ba:bf:0a:fd:33:e5 BATMAN_IV)]
+    IF             Neighbor              last-seen
+            wlan0        bi-raspimesh02    0.890s
+            wlan0        bi-raspimesh03    0.660s
+    ```
+
+    Create the /etc/bat-hosts file on all of the mesh nodes if you want the mac addresses resolved to hostnames in batctl commands.
+
 ### Verify the bridge
 
 1. Now connect your laptop to the Ethernet port on the bridge node.  
@@ -299,6 +318,9 @@ with the hostname of your bridge raspberry pi.
     br0     8000.b827ebe818b0   no      bat0
                                         eth0
     ```
+
+6. You can verify the bridge device is connected to the mesh the same way you verified the gateway device, using commands ```sudo batctl if``` and ```sudo batctl n```.  
+7. For the mesh to work there needs to be communication path from the bridge node to the gateway node.  If the mesh nodes are spread apart you can check the mesh, by logging onto each mesh device and looking at the neighbours
 
 Once your laptop is connected to the bridge node and has an IP address in the mesh network it will be able to directly connect to all the nodes in the mesh and also access any computer on the home/office network and the Internet.  Try issuing command ```ping www.ibm.com -c 5```, where you should get an response similar to:
 
