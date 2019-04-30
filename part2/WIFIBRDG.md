@@ -7,6 +7,21 @@
 
 # Part 2 - WiFi Access Point bridged to mesh
 
+1. Install additional software to run the access point using command ```sudo apt-get install -y hostapd```
+2. Edit file /etc/hostapd/hostapd.conf as root user, you may need to create this, and set the user as:
+
+```text
+
+```
+
+3. Edit file /etc/default/hostapd so it looks like :
+
+```text
+
+```
+
+notice the .... options.
+
 ***
 *Quick links :*
 ***

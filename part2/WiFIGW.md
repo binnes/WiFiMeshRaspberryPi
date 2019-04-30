@@ -72,18 +72,18 @@ The rules in file start-batman-adv.sh need to be updated to route traiffic to th
 5. Run command ```ifconfig``` and check you can see both wlan0 and wlan1 interfaces.
 6. Run command ```iwconfig``` and check you see something similar to:
 
-    ```
+    ```text
     wlan0     IEEE 802.11  ESSID:"bi-raspi-mesh"  
-            Mode:Ad-Hoc  Frequency:2.462 GHz  Cell: B2:7A:83:D4:C2:B9   
-            Tx-Power=31 dBm   
+            Mode:Ad-Hoc  Frequency:2.462 GHz  Cell: B2:7A:83:D4:C2:B9
+            Tx-Power=31 dBm
             Retry short limit:7   RTS thr:off   Fragment thr:off
             Power Management:on
-            
+
     lo        no wireless extensions.
 
     wlan1     IEEE 802.11  ESSID:"INNES"  
-            Mode:Managed  Frequency:2.437 GHz  Access Point: 00:23:6C:BF:51:47   
-            Bit Rate=39 Mb/s   Tx-Power=31 dBm   
+            Mode:Managed  Frequency:2.437 GHz  Access Point: 00:23:6C:BF:51:47
+            Bit Rate=39 Mb/s   Tx-Power=31 dBm
             Retry short limit:7   RTS thr:off   Fragment thr:off
             Power Management:on
             Link Quality=44/70  Signal level=-66 dBm  
