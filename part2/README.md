@@ -9,7 +9,9 @@ In Part 1 of the workshop you created a mesh network, then part 1 showed you how
 
 In this part of the workshop you will see how to connect the gateway node to your home/office network using WiFi and also how to turn the bridge node into a WiFi hotspot, so you can bridge WiFi connected devices to the mesh network.
 
-To complete the following sections you need to have additional WiFi USB dongle(s).  
+To complete the following sections you need to have additional WiFi USB dongle(s).
+
+Having an additinal WiFi interface connected to the Raspberry Pi does use more power, so ensure you have an adequate power supply for the Raspberry Pis.  Your latop USB port may not supply enough power for the WiFi interfaces to work correctly.
 
 If you do not need WiFi enabled gateway or bridge you can skip this part and move to [part 3](/part3/README.md)
 
