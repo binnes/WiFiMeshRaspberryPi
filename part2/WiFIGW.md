@@ -32,7 +32,7 @@ To connect to a WiFi network the raspberry pi uses a configuration file /etc/wpa
     }
     ```
 
-    - leave the country code as you set with the raspi-config (which should be the country you are located in)
+    - leave the country code as you set with the raspi-config (which should be the country you are located in).  If you need to lookup the correct country code, the a list of the ISO 3166 country codes are [here](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes) - select the Alpha-2 column for valid codes.
     - set the **network name** to be the name of the network you want to join
     - set the **password** to the network password you want to join
 
