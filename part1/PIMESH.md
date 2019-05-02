@@ -34,8 +34,7 @@ You need to complete the following steps on all the Raspberry Pis that you want 
     - Change the user password (don't forget it, as you will need it everytime you remotely connect to the Pi)
     - Network Options - Hostname
     - Localisation Options - set Locale, Timezone and WiFi country to match your location
-    - Network Option - WiFi.  If your pi is not connected to the internet already, use this option to setup WiFi connectivity to ensure your Pi has access to the internet.
-    - Boot Options - Desktop/CLI - choose Console Autologin
+    - Network Option - WiFi.  If your pi is not connected to the internet already, use this option to setup WiFi connectivity to ensure your Pi has access to the internet
     - interfacing Options - SSH, ensure SSH server is enabled
 
     Exit raspi-config, don't reboot yet.
@@ -111,7 +110,18 @@ Perform the following on the pi command line:
 
 6. Ensure the batman-adv kernel module is loaded at boot time by issuing the following command : ```echo 'batman-adv' | sudo tee --append /etc/modules```
 7. Stop the DHCP process from trying to manage the wireless lan interface by issuing the following command : ```echo 'denyinterfaces wlan0' | sudo tee --append /etc/dhcpcd.conf```
-8. make sure the startup script gets called by issuing the following command : ```echo "$(pwd)/start-batman-adv.sh" >> ~/.bashrc```
+8. Make sure the startup script gets called by editing file **/etc/rc.local** as root user, e.g.
+
+    - ```sudo vi /etc/rc.local```
+    - ```sudo nano /etc/rc.local```
+
+    and insert:
+
+    ```text
+    /home/pi/start-batman-adv.sh &
+    ```
+
+    before the last line: **exit 0**
 9. If this pi will not be a bridge or gateway node then shut it down using command ```sudo shutdown -h now```
 
 You now have all the raspberry pi systems configured to join the mesh, so proceed to the [next section](ROUTE.md) to setup access to the Internet and also enable a bridge.
