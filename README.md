@@ -23,7 +23,7 @@ After completing this workshop you should be able to :
 
 To complete this workshop you need some hardware and some prerequisite knowledge.  Mode details about the prerequisites is available in the [Additional Resources section](/additionalResources/README.md) :
 
-- A minimum of 2 raspberry Pis (3 Model B(+)) additional Pis can be added to extend the mesh, which can also include Pi Zero W.  You also need to have an SD card to hold the filesystem and a power supply for each Raspberry Pi and optionally a keyboard, mouse and monitor if not doing headerless setup (details in [Additional Resources](/additionalResources/README.md))
+- A minimum of 2 raspberry Pis (3 Model B(+)) additional Pis can be added to extend the mesh, which can also include Pi Zero(W).  You also need to have an SD card to hold the filesystem and a power supply for each Raspberry Pi and optionally a keyboard, mouse and monitor if not doing headerless setup (details in [Additional Resources](/additionalResources/README.md))
 - A laptop or desktop computer with a modern OS (Linux, MacOS or Windows - windows users will need additional software to communicate with Raspberry Pis if using [headerless setup](/additionalResources/HEADERLESS_SETUP.md))
 - Ability to flash the SD card for the raspberry Pi (SD card slot in laptop or USB adapter and [appropriate software](https://etcher.io))
 - Ethernet network, cables and connection to connect Laptop to Ethernet (if this isn't available then WiFi is also possible)
