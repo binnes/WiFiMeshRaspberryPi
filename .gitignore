@@ -1,2 +1,3 @@
 *.code-workspace
 private
+.DS_Store

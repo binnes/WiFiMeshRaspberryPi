@@ -7,6 +7,8 @@
 
 In Part 1 of the workshop you created a mesh network, then part 1 showed you how to connect the mesh network to your home/office network using Ethernet.  It also showed how to bridge a non-mesh device to the mesh network, again using Ethernet.
 
+![Connecting mesh via WiFi](/images/PiMeshWiFi.png)
+
 In this part of the workshop you will see how to connect the gateway node to your home/office network using WiFi and also how to turn the bridge node into a WiFi hotspot, so you can bridge WiFi connected devices to the mesh network.
 
 To complete the following sections you need to have additional WiFi USB dongle(s).
