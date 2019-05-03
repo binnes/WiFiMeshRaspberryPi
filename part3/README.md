@@ -32,13 +32,11 @@ The DHT sensors have 4 connecting pins.  When looking at the front of the sensor
 - Not used
 - Ground
 
-![ModeMCU DHT Wiring](../images/NodeMCU_DHT.jpg)
+If you have a DHT mounted on a module then you need to check the pinout, usually indicated on the board, with **+** (to 3V pin), **-** (to G pin) and **out** or **data** :
 
-If you have a DHT mounted on a module then you need to check the pinout, usually indicated on the board, with **+** (to 3V pin), **-** (to G pin) and **out** or **data** (to D2 pin):
+![DHT module](../images/DHT-pins.png)
 
-![DHT module](../images/DHTmodule.png)
-
-## Connect the DHT-11
+### Connect the DHT-11
 
 Connect three female to female jumper wires to the DHT-11 and then follow the [pinout diagram](https://pinout.xyz/#) to connect the jumpers to :
 * Ground - Pin 9
@@ -66,6 +64,12 @@ So, with the shortest pin on the left and the flat side on the right the pinout 
 You need to connect the Data In, +'ve voltage and ground to the Raspberry Pi as shown in the diagram.  Take care to ensure that the connections are as shown, as connecting the wrong pins can damage the LED:
 
 ![ModeMCU LED Wiring](../images/NodeMCU_LED_Wiring.jpg)
+
+### Connect the NeoPixel
+Connect three female to female jumper wires to the NeoPixel and then follow the [pinout diagram](https://pinout.xyz/#) to connect the jumpers to :
+* Ground - Pin 6
+* Data - Pin 12
+* 3.3v Power - Pin 1
 
 ## Install Node-RED and Node-RED packages
 
@@ -126,38 +130,13 @@ Open a browser on your laptop to the IP Address of the Raspberry Pi mesh device.
 http://192.168.1.35:1880
 ```
 
-## Connect the DHT-11
-Connect three female to female jumper wires to the DHT-11 and then follow the [pinout diagram](https://pinout.xyz/#) to connect the jumpers to :
-* Ground - Pin 9
-* Data - Pin 15
-* 3.3v Power - Pin 17
-
-### Build this flow
+### Test the DHT-11 Temperature Sensor by building this flow
 ![Node-RED DHT11 Flow](/images/Node-RED-DHT11-flow.png)
 Import this flow
 
-### Connect the NeoPixel
-Connect three female to female jumper wires to the NeoPixel and then follow the [pinout diagram](https://pinout.xyz/#) to connect the jumpers to :
-* Ground - Pin 6
-* Data - Pin 12
-* 3.3v Power - Pin 1
-
-### Build this flow
+### Test the NeoPixel LED by building this flow
 ![Node-RED NeoPixel Flow](/images/Node-RED-NeoPixel-flow.png)
 Import this flow
-
-### junk
-I don't think this is necessary. I did these steps...
-cd /usr/lib/node_modules
-mkdir node-dht-sensor
-cd node-dht-sensor
-#  npm view  node-dht-sensor
-wget https://registry.npmjs.org/node-dht-sensor/-/node-dht-sensor-0.1.0.tgz
-tar zxvf node-dht-sensor-0.1.0.tgz
-mv package/* .
-
-# "/usr/bin/node" "/usr/bin/node-gyp" "configure"
-npm install
 
 ***
 *Quick links :*
