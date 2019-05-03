@@ -43,11 +43,11 @@ This workshop is split into 3 parts:
 ![wifi options](/images/PiMeshWiFi.png)
 - [Part 3](/part3/README.md) creates an Internet of Things application to sense temperature and humidity and then sends the data to the IBM Cloud.  An application running on the IBM Cloud receives and processed the sensor data then sends a command back to the raspberry Pi to set the colour of an multi-coloured LED light.  The mesh network is used connect the Raspberry Pi hosting the sensor and LED to the Internet, allowing it to send and receive SSL encrypted data.
 
-Before starting, you should make sure you have all the [prerequisites and setup](/additionalResources/PREREQUISITES_AND_SETUP.md) completed.  Once the setup is complete move onto [part 1](/part1/README.md) to get started.
-
 ## Network connectivity
 
 During the workshop you will be switching your laptop to use local networking created by mesh nodes.  Until the mesh is fully operational you may have times when you need to work on a Raspberry Pi, but loose internet connectivity on your laptop.  You may find it useful to clone this git repository locally, so you can still access the content when offline.
+
+Before starting, you should make sure you have all the [prerequisites and setup](/additionalResources/PREREQUISITES_AND_SETUP.md) completed.  Once the setup is complete move onto [part 1](/part1/README.md) to get started.
 
 ***
 *Quick links :*
