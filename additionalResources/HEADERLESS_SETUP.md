@@ -40,7 +40,7 @@ Open a command line on your laptop and complete the following:
 
     You should relplace **network name** with the WiFi network name you want the Pi to connect to on boot and **password** with the WiFi network network password.
 
-Eject the SD card from your laptop and insert it into the Raspberry Pi.  If you are using a USB WiFi dongle on a Pi Zero or Pi 1 Model A+ then insert the donge and power on the Raspberry Pi
+Eject the SD card from your laptop and insert it into the Raspberry Pi.
 
 You can now access your Raspberry Pi [using the command line](COMMAND_LINE_ACCESS.md)
 
@@ -55,7 +55,7 @@ To enable network over USB you need to modify 2 files in the boot partition of t
     dwc_otg.lpm_enable=0 console=serial0,115200 console=tty1 root=PARTUUID=c1dc39e5-02 rootfstype=ext4 elevator=deadline fsck.repair=yes rootwait modules-load=dwc2,g_ether
     ```
 
-You can now eject the SD card from your laptop, insert it into the Raspberry Pi Zero(W) and then connect the USB cable to the USB port and your laptop to power the Raspberry Pi from your laptop. After a short delay you should be able to access your Raspberry Pi using the [command line](COMMAND_LINE_ACCESS.md)
+You can now eject the SD card from your laptop, insert it into the Raspberry Pi Zero W and then connect the USB cable to the USB port and your laptop to power the Raspberry Pi from your laptop. After a short delay you should be able to access your Raspberry Pi using the [command line](COMMAND_LINE_ACCESS.md)
 
 One further action needs to be taken during the initial setup.  When you run the **raspi-config** command, you need to go into the Advanced options and select to expand the filesystem.  This normally happens automatically on first boot, but we removed that option to get the network over USB functionality working.
 

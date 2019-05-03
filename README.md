@@ -28,7 +28,7 @@ To complete this workshop you need some hardware and some prerequisite knowledge
 - Ability to flash the SD card for the raspberry Pi (SD card slot in laptop or USB adapter and [appropriate software](https://etcher.io))
 - Ethernet network, cables and connection to connect Laptop to Ethernet (if this isn't available then WiFi is also possible)
 - Internet connectivity is required
-- Optional WiFi USB dongle(s) if want to enable WiFi rather than Ethernet connectivity (*Note: some WiFi dongles need more power than a Raspberry Pi USB interface can supply, so a powered USB hub may be needed*)
+- Optional WiFi USB dongle(s) if want to enable WiFi rather than Ethernet connectivity
 - DHT11 or DHT22 temperature and humidity sensor and an addressable RGB LED. You also need 6 Female to Female connector cables. Additional details about of these components are available in the [Additional Resources section](/additionalResources/README.md)
 - You should be able to setup a Raspberry Pi and get access to a command line on the Pi (help available in the [Additional Resouces section](/additionalResources/README.md))
 - You should be familiar with basic linux command line commands and be able to edit a text file on the command line.  If you need help there is a section on the [raspberry pi site](https://www.raspberrypi.org/documentation/linux/usage/text-editors.md) and there are plenty of tutorials available with a quick web search.  For new users, nano will be an easier option than vi and remember **^x** means hold the control key then press x.

@@ -21,9 +21,9 @@ For each Raspberry Pi you want to use in the mesh you need:
 - Micro USB power cable
 - Power supply
 - microSD card (8MB or larger)
-- Optional USB hub for Pi Zero/Pi 1A+, if setting up with keyboard and mouse (It is possible to setup without keyboard, mouse and monitor using [headerless setup](/additionalResources/HEADERLESS_SETUP.md))
-- Optional mini-HDMI to HDMI converter for Pi Zero is setting up with Keyboard, mouse and monitor
-- Optional USB WiFi dongle for Pi Zero/Pi 1 Model A+ or the Pi 3B(+) Gateway/Bridge nodes if you want to do [part 2](/part2/README.md) to add WiFi connectivity instead of Ethernet.
+- Optional USB hub for Pi Zero W, if setting up with keyboard and mouse (It is possible to setup without keyboard, mouse and monitor using [headerless setup](/additionalResources/HEADERLESS_SETUP.md))
+- Optional mini-HDMI to HDMI converter for Pi Zero W if setting up with Keyboard, mouse and monitor
+- Optional USB WiFi dongle for Pi 3B(+) Gateway/Bridge nodes if you want to do [part 2](/part2/README.md) to add WiFi connectivity instead of Ethernet.
 
 In addition to the Raspberry Pis, you need:
 
@@ -36,23 +36,11 @@ The following Raspberry Pi boards have been tested (using [Raspbian Stretch Lite
 
 - Raspberry Pi 3 Model B : Gateway Node, Bridge Node or Mesh Node (additional USB WiFi dongle needed for WiFi connected Gateway or Bridge Node)
 - Raspberry Pi 3 Model B+ : Gateway Node, Bridge Node or Mesh Node (additional USB WiFi dongle needed for WiFi connected Gateway or Bridge Node)
-- Raspberry Pi Zero (With micro USB->USB A converter cable and USB WiFi dongle): Mesh Node
 - Raspberry Pi Zero W : Mesh Node
-- Raspberry Pi 1 Model A+ (with USB WiFi Dongle) : Mesh Node
+
+*All tests on boards using a USB WiFi dongle for the mesh network failed, so only boards with built in WiFi work as part of the mesh network*
 
 **Note** : Please make sure your Raspberry Pi boards have sufficient power.  Not all USB ports on laptops can supply sufficient power for a Raspberry Pi running sensors and WiFi.
-
-If using a USB WiFi dongle to act as the Mesh interface, then you can verify that the WiFi dongle supports mesh networking.  All Raspberry Pis integrated WiFi supports mesh, but if you are using an additional USB WiFi dongle then connect the WiFi dongle to your pi, logon to the Pi and run command ```iw list```.  You will see all the WiFi interfaces with all the capabilities.  For Mesh network support you are looking for the **Supported interface modes** section to verify **IBSS** mode is supported:
-
-```text
-Supported interface modes:
-         * IBSS
-         * managed
-         * AP
-         * P2P-client
-         * P2P-GO
-         * P2P-device
-```
 
 ### Sensors
 
