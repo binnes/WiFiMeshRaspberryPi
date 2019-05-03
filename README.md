@@ -38,7 +38,7 @@ To complete this workshop you need some hardware and some prerequisite knowledge
 
 This workshop is split into 3 parts:
 
-- [Part 1](/part1/README.md) will setup the mesh network using at least 2 Raspberry Pi boards.  Part 1 assumes that Ethernet connectivity is available to connect the mesh network to your home network and also allow a non-mesh device to use the mesh network to access the internet, as shown on the image at the top of the page.
+- [Part 1](/part1/README.md) will setup the mesh network using at least 2 Raspberry Pi boards.  Part 1 assumes that Ethernet connectivity is available to connect the mesh network to your home network (Gateway node connection to Home/Office network in above image) and also allow a non-mesh device to use the mesh network to access the internet (Bridge node connection to Ad-Hoc network in above image), as shown on the image at the top of the page.
 - [Part 2](/part2/README.md) is optional.  It converts the Ethernet connection joining the mesh to your home/office network to WiFi.  It also provides a WiFi access point to allow other devices to use the mesh to get to your home/office network and onto the Internet.
 - [Part 3](/part3/README.md) creates an Internet of Things application to sense temperature and humidity and then sends the data to the IBM Cloud.  An application running on the IBM Cloud receives and processed the sensor data then sends a command back to the raspberry Pi to set the colour of an multi-coloured LED light.  The mesh network is used connect the Raspberry Pi hosting the sensor and LED to the Internet, allowing it to send and receive SSL encrypted data.
 
