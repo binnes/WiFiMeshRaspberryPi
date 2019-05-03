@@ -34,7 +34,7 @@ The DHT sensors have 4 connecting pins.  When looking at the front of the sensor
 
 If you have a DHT mounted on a module then you need to check the pinout, usually indicated on the board, with **+** (to 3V pin), **-** (to G pin) and **out** or **data** :
 
-![DHT module](../images/DHT11-pins.png)
+![DHT module](/images/DHT11-pins.png)
 
 ### Connect the DHT-11
 
