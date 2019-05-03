@@ -44,6 +44,10 @@ This workshop is split into 3 parts:
 
 Before starting, you should make sure you have all the [prerequisites and setup](/additionalResources/PREREQUISITES_AND_SETUP.md) completed.  Once the setup is complete move onto [part 1](/part1/README.md) to get started.
 
+## Network connectivity
+
+During the workshop you will be switching your laptop to use local networking created by mesh nodes.  Until the mesh is fully operational you may have times when you need to work on a Raspberry Pi, but loose internet connectivity on your laptop.  You may find it useful to clone this git repository locally, so you can still access the content when offline.
+
 ***
 *Quick links :*
 ***
