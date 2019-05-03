@@ -5,6 +5,70 @@
 
 # Part 3
 
+## Learning Objectives
+
+- Connect Sensors
+- Install Node-RED and Node-RED packages
+- Create an Internet of Things Starter Application in IBM Cloud
+- Send sensor data across the mesh to the Watson IoT Platform
+
+## Prerequisites
+
+This tutorial can be completed using an IBM Cloud Lite account.
+
+* Create an [IBM Cloud account](https://cloud.ibm.com/registration)
+* Log into [IBM Cloud](https://cloud.ibm.com/login)
+
+## Connect DHT Temperature Sensor and NeoPixel LED to Raspberry Pi
+
+### Step 1 - Connect the DHT sensor to your Raspberry Pi
+
+Disconnect the Raspberry Pi from the power supply before connecting the DHT sensor.
+
+The DHT sensors have 4 connecting pins.  When looking at the front of the sensor (mesh case) with the pins at the bottom, the connections are (left to right):
+
+- +'ve voltage
+- Data
+- Not used
+- Ground
+
+![ModeMCU DHT Wiring](../images/NodeMCU_DHT.jpg)
+
+If you have a DHT mounted on a module then you need to check the pinout, usually indicated on the board, with **+** (to 3V pin), **-** (to G pin) and **out** or **data** (to D2 pin):
+
+![DHT module](../images/DHTmodule.png)
+
+## Connect the DHT-11
+
+Connect three female to female jumper wires to the DHT-11 and then follow the [pinout diagram](https://pinout.xyz/#) to connect the jumpers to :
+* Ground - Pin 9
+* Data - Pin 15
+* 3.3v Power - Pin 17
+
+
+### Step 2 - Connecting the Neopixel to the Raspberry Pi
+
+Now you need to connect the NeoPixel to the Raspberry Pi.  Before you start making any connections please disconnect the device from your power supply so there is no power getting to the device.  You should never make any connection changes when the device is powered on.
+
+Before making the connections we need to identify the 4 connecting pins coming out of the LED.  If you examine the rim of the pixel cover you will see that one side is flattened (this should be the opposite side from the shortest pin) - this pin next to the flattened side is the **Data Out** pin.  We will not be using this pin, as we only have a single pixel.  You can chain pixels together connecting the **Data Out** pin to the **Data In** pin of the next pixel in the chain.
+
+The shortest pin on the Pixel is the **Data In**
+The longest pin on the Pixel is **Ground**
+The remaining pin is **+'ve voltage**, which should be 5v, but it works with 3.3v that the Raspberry Pi provides.
+
+So, with the shortest pin on the left and the flat side on the right the pinout is (left to right):
+
+- Data In (shortest pin)
+- +'ve Voltage
+- Gnd (longest pin)
+- Data Out (no connection)
+
+You need to connect the Data In, +'ve voltage and ground to the Raspberry Pi as shown in the diagram.  Take care to ensure that the connections are as shown, as connecting the wrong pins can damage the LED:
+
+![ModeMCU LED Wiring](../images/NodeMCU_LED_Wiring.jpg)
+
+## Install Node-RED and Node-RED packages
+
 ### Install Node.JS v10 on your Raspberry Pi following the [node install instructions](https://github.com/nodesource/distributions).
 *Note: The DHT sensor install does not yet work with Node.JS v12*
 ```
@@ -12,9 +76,11 @@ $ sudo bash
 $ curl -sL https://deb.nodesource.com/setup_10.x | bash -
 $ exit
 ```
-Next, install the nodejs package
+Next, install the nodejs package and some pre-requistes
 ```
 $ sudo apt-get install -y nodejs
+$ sudo npm -g install node-pre-gyp
+$ sudo npm -g install node-gyp
 ```
 
 ### Install Node-RED and required packages
@@ -22,7 +88,7 @@ $ sudo apt-get install -y nodejs
 $ sudo npm -g install node-red --unsafe-perms
 $ sudo npm -g install  node-red-contrib-ibm-watson-iot
 ```
-Next Install node-red-node-pi-neopixel pre-reqs
+Next install node-red-node-pi-neopixel pre-reqs
 described in https://flows.nodered.org/node/node-red-node-pi-neopixel
 * Select to continue (y), but don't perform a full install (N) and don't let it configure sound (N)
 
@@ -44,14 +110,7 @@ $ make
 $ sudo make check
 $ sudo make install
 ```
-Next install pre-reqs
-```
-$ sudo bash
-# npm -g install nan
-# npm -g install node-pre-gyp
-# npm -g install node-gyp
-# exit
-```
+
 Finally install node-red-contrib-dht-sensor
 ```
 $ sudo npm install --unsafe-perm -g node-red-contrib-dht-sensor
