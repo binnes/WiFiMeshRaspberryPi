@@ -21,7 +21,8 @@ For each Raspberry Pi you want to use in the mesh you need:
 - Micro USB power cable
 - Power supply
 - microSD card (8MB or larger)
-- Optional USB hub for Pi Zero/Pi 1A+, if keyboard and mouse need to be connected
+- Optional USB hub for Pi Zero/Pi 1A+, if setting up with keyboard and mouse (It is possible to setup without keyboard, mouse and monitor using [headerless setup](/additionalResources/HEADERLESS_SETUP.md))
+- Optional mini-HDMI to HDMI converter for Pi Zero is setting up with Keyboard, mouse and monitor
 - Optional USB WiFi dongle for Pi Zero/Pi 1 Model A+ or the Pi 3B(+) Gateway/Bridge nodes if you want to do [part 2](/part2/README.md) to add WiFi connectivity instead of Ethernet.
 
 In addition to the Raspberry Pis, you need:

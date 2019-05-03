@@ -7,14 +7,14 @@
 
 # Additional Resources - Command Line Access to a Raspberry Pi
 
-
 ## ssh access from windows
+
 
 There are a number options when working on Windows to access the Raspberry Pi over the network using ssh:
 
 - Install the [putty application](https://www.putty.org)
 - On Windows 10, since autumn 2018, openssh is now included, so you can use the ssh command in a command prompt or powershell window (from a command line enter ```ssh -V``` to test if it is available on your system)
-- On Windows 10 install the [Linux system for Windows](https://docs.microsoft.com/en-us/windows/wsl/install-win10), then choose the distribution you want to use from the Windows store to give access to a linux environment running within Windows.  Once you have the linux distibution of choice installed, you should update the distribution and install ssh.  E.g. for a Debian use the following commands: ```sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get install -y ssh``` 
+- On Windows 10 install the [Linux system for Windows](https://docs.microsoft.com/en-us/windows/wsl/install-win10), then choose the distribution you want to use from the Windows store to give access to a linux environment running within Windows.  Once you have the linux distibution of choice installed, you should update the distribution and install ssh.  E.g. for a Debian use the following commands: ```sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get install -y ssh```
 
 ***
 *Quick links :*

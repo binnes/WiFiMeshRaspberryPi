@@ -29,7 +29,7 @@ You need to complete the following steps on all the Raspberry Pis that you want 
 
     Eject the SD card from your operating system and remove the card from your computer.
 4. Insert the SD card into the Raspberry Pi and then power on the Raspberry Pi.
-5. Login to the pi with user pi and password raspberry.  If using headerless setup then connect via ssh.  The hostname on first boot is raspberrypi.local.  
+5. Login to the pi with user **pi** and password **raspberry**.  If using headerless setup then connect via [ssh](/additionalResources/COMMAND_LINE_ACCESS.md).  The hostname on first boot is **raspberrypi.local**.  
 6. On the Raspberry Pi command line issue the command ```sudo raspi-config``` and then go through and change the following settings:
     - Change the user password (don't forget it, as you will need it everytime you remotely connect to the Pi)
     - Network Options - Hostname
