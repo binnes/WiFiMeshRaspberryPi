@@ -2,7 +2,7 @@
 ***
 [Home](/README.md) - [Part 1](/part1/README.md) - [Part 2](/part2/README.md) - [Part 3](/part3/README.md) - [**Resources**](/additionalResources/README.md)
 ***
-**Resources** - [**Setup**](PREREQUISITES_AND_SETUP.md) - [Headerless Setup](HEADERLESS_SETUP.md)
+**Resources** - [**Setup**](PREREQUISITES_AND_SETUP.md) - [Headerless Setup](HEADERLESS_SETUP.md) - [Command line access](COMMAND_LINE_ACCESS.md)
 ***
 
 # Additional Resources - Prerequisites and setup
@@ -21,7 +21,7 @@ For each Raspberry Pi you want to use in the mesh you need:
 - Micro USB power cable
 - Power supply
 - microSD card (8MB or larger)
-- Optional USB hub for Pi Zero, if keyboard and mouse need to be connected
+- Optional USB hub for Pi Zero/Pi 1A+, if keyboard and mouse need to be connected
 - Optional USB WiFi dongle for Pi Zero/Pi 1 Model A+ or the Pi 3B(+) Gateway/Bridge nodes if you want to do [part 2](/part2/README.md) to add WiFi connectivity instead of Ethernet.
 
 In addition to the Raspberry Pis, you need:
@@ -94,6 +94,6 @@ To sign up for the IBM cloud follow [this link](https://cloud.ibm.com/login)
 ***
 *Quick links :*
 ***
-**Resources** - [**Setup**](PREREQUISITES_AND_SETUP.md) - [Headerless Setup](HEADERLESS_SETUP.md)
+**Resources** - [**Setup**](PREREQUISITES_AND_SETUP.md) - [Headerless Setup](HEADERLESS_SETUP.md) - [Command line access](COMMAND_LINE_ACCESS.md)
 ***
 [Home](/README.md) - [Part 1](/part1/README.md) - [Part 2](/part2/README.md) - [Part 3](/part3/README.md) - [**Resources**](/additionalResources/README.md)

@@ -15,6 +15,10 @@ Before you start the workshop you need to have the required hardware and softwar
 
 When setting up a Raspberry Pi you need to access the Pi to do the initial setup.  This is usually done by connecting a keyboard, mouse and monitor to the Pi.  However, it is possible to setup the pi using a computer without needing to connect the keyboard, mouse and monitor.  This is known as a headerless setup.  Full details can be found on doing a headerless setup on [this page](/additionalResources/HEADERLESS_SETUP.md)
 
+## Command line access to a Raspberry Pi
+
+Throughout the workshop you need to get access to the command line of the Raspberry Pi board that make up the mesh network.  [this page](COMMAND_LINE_ACCESS.md) provides information how to do this from Linux, MacOS and Windows systems.
+
 ***
 *Quick links :*
 ***
