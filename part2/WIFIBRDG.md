@@ -59,24 +59,17 @@ Note the configuration below leaves interface eth0 in the configuration, so you 
     # Note that -B (daemon mode) and -P (pidfile) options are automatically
     # configured by the init.d script and must not be added to DAEMON_OPTS.
     #
-    #DAEMON_OPTS="-B"
+    DAEMON_OPTS="-B"
     ```
 
     notice the DAEMON_OPTS option.  This should not need to be set, but I noticed in the latest version of Raspbian lite, the -B options is not set in the startup script, which causes the service to timeout and be restarted, which resets all WiFi connections to the Access Point.
-4. Create file **/etc/network/interfaces.d/wlan1** as root user and set the content to:
-
-    ```text
-    interface wlan1
-        nohook wpa_supplicant
-    ```
-
-5. Modify the last line of file **/etc/dhcpcd.conf** as root user and add wlan1 to the list of denied interfaces:
+4. Modify the last line of file **/etc/dhcpcd.conf** as root user and add wlan1 to the list of denied interfaces:
 
     ```text
     denyinterfaces wlan0 eth0 bat0 wlan1
     ```
 
-6. Update the **~/start-batman-adv.sh** file to contain the following:
+5. Update the **~/start-batman-adv.sh** file to contain the following:
 
     ```text
     #!/bin/bash
@@ -88,6 +81,9 @@ Note the configuration below leaves interface eth0 in the configuration, so you 
     sudo brctl addbr br0
     sudo brctl addif br0 bat0 eth0
 
+    # Tell batman-adv this is a gateway client
+    sudo batctl gw_mode client
+
     # Activates the interfaces for batman-adv
     sudo ifconfig wlan0 up
     sudo ifconfig bat0 up
@@ -97,8 +93,8 @@ Note the configuration below leaves interface eth0 in the configuration, so you 
     sudo dhclient br0
     ```
 
-7. Enable the access point service on wlan1 interface using command ```sudo systemctl enable hostapd@wlan1.service```
-8. Reboot the pi using command ```sudo reboot -n```
+6. Enable the access point service on wlan1 interface using command ```sudo systemctl enable hostapd@wlan1.service```
+7. Reboot the pi using command ```sudo reboot -n```
 
 When the Pi reboots you should be able to see a new WiFi network available and devices should be able to join it, using the passphrase you set in the /etc/hostapd/wlan1.conf file.
 
