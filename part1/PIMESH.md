@@ -70,7 +70,12 @@ Perform the following on the pi command line:
     sudo ifconfig bat0 up
     ```
 
-3. Make the start-batman-adv.sh file executable with command ```chmod +x ~/start-batman-adv.sh```
+3. Make the start-batman-adv.sh file executable with command : 
+
+    ```text
+    chmod +x ~/start-batman-adv.sh
+    ```
+
 4. Create the network interface definition for the wlan0 interface by creating a file as root user e.g.
 
     - ```sudo vi /etc/network/interfaces.d/wlan0```
@@ -93,7 +98,12 @@ Perform the following on the pi command line:
 
     However, these values must be the same on ALL devices that will form your mesh network.
 
-5. Ensure the batman-adv kernel module is loaded at boot time by issuing the following command : ```echo 'batman-adv' | sudo tee --append /etc/modules```
+5. Ensure the batman-adv kernel module is loaded at boot time by issuing the following command :
+
+    ```text
+    echo 'batman-adv' | sudo tee --append /etc/modules
+    ```
+
 6. Stop the DHCP process from trying to manage the wireless lan interface by issuing the following command : ```echo 'denyinterfaces wlan0' | sudo tee --append /etc/dhcpcd.conf```
 7. Make sure the startup script gets called by editing file **/etc/rc.local** as root user, e.g.
 
@@ -107,7 +117,11 @@ Perform the following on the pi command line:
     ```
 
     before the last line: **exit 0**
-8. If this pi will not be a bridge or gateway node then shut it down using command ```sudo shutdown -h now```
+8. If this pi will not be a bridge or gateway node then shut it down using command :
+
+    ```text
+    sudo shutdown -h now
+    ```
 
 You now have all the raspberry pi systems configured to join the mesh, so proceed to the [next section](ROUTE.md) to setup access to the Internet and also enable a bridge.
 
