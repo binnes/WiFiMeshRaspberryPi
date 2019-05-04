@@ -65,15 +65,7 @@ On the selected Pi that will be the gateway complete the following steps on the 
     dhcp-range=192.168.199.2,192.168.199.99,255.255.255.0,12h
     ```
 
-3. Update the bat0 interface definition by editing file /etc/network/interfaces.d/bat0 as root user.  Change the content to be:
-
-    ```text
-    auto bat0
-    iface bat0 inet manual
-        pre-up /usr/sbin/batctl if add wlan0
-    ```
-
-4. Change the startup file to add the routing rules to forward mesh traffic to the home/office network and do the Network Address Translation on the reply.  Set the node as a mesh gateway and also configure the gateway interface IP address.  To do this update the **start-batman-adv.sh** file and change the content to:
+3. Change the startup file to add the routing rules to forward mesh traffic to the home/office network and do the Network Address Translation on the reply.  Set the node as a mesh gateway and also configure the gateway interface IP address.  To do this update the **start-batman-adv.sh** file and change the content to:
 
     ```text
     #!/bin/bash
@@ -96,7 +88,7 @@ On the selected Pi that will be the gateway complete the following steps on the 
     sudo ifconfig bat0 192.168.199.1/24
     ```
 
-5. Shutdown the gateway pi using command ```sudo shutdown -h now```
+4. Shutdown the gateway pi using command ```sudo shutdown -h now```
 
 ## Creating a bridge node
 
@@ -107,15 +99,7 @@ A bridge node allows non-mesh devices to use the mesh nodes to connect to the ho
 On the selected bridge node run the following on a command line:
 
 1. Install the bridge utilities using command : ```sudo apt-get install -y bridge-utils```
-2. Update the bat0 interface definition by editing file /etc/network/interfaces.d/bat0 as root user.  Change the content to be:
-
-    ```text
-    auto bat0
-    iface bat0 inet manual
-        pre-up /usr/sbin/batctl if add wlan0
-    ```
-
-3. Create an interface config for the eth0 interface.  This will allow the ethernet port to be *hotplugged*, which means the ethernet cable can be connected and disconnected.  Do this by creating file /etc/network/interfaces.d/eth0 as root user and setting the content to:
+2. Create an interface config for the eth0 interface.  This will allow the ethernet port to be *hotplugged*, which means the ethernet cable can be connected and disconnected.  Do this by creating file /etc/network/interfaces.d/eth0 as root user and setting the content to:
 
     ```text
     auto eth0
@@ -123,13 +107,13 @@ On the selected bridge node run the following on a command line:
     iface eth0 inet manual
     ```
 
-4. Modify the /etc/dhcpcd.conf file as root use and change the last line to:
+3. Modify the /etc/dhcpcd.conf file as root use and change the last line to:
 
     ```text
     denyinterfaces wlan0 eth0 bat0
     ```
 
-5. Update the configuration file ~/start-batman-adv.sh to setup the bridge
+4. Update the configuration file ~/start-batman-adv.sh to setup the bridge
 
     ```text
     #!/bin/bash
@@ -148,7 +132,7 @@ On the selected bridge node run the following on a command line:
     sudo ifconfig bat0 up
     ```
 
-6. Shutdown the bridge pi using command ```sudo shutdown -h now```
+5. Shutdown the bridge pi using command ```sudo shutdown -h now```
 
 ## Boot the mesh network
 
