@@ -28,7 +28,7 @@ You should be prompted for a password, and on first boot the default password is
 ```text
 ssh pi@raspberrypi.local
 Warning: Permanently added 'raspberrypi.local,fe80::b894:9368:9db2:39c4%en0' (ECDSA) to the list of known hosts.
-pi@raspberrypi.local's password: 
+pi@raspberrypi.local's password:
 Linux raspberrypi 4.14.98+ #1200 Tue Feb 12 20:11:02 GMT 2019 armv6l
 
 The programs included with the Debian GNU/Linux system are free software;
@@ -97,9 +97,9 @@ There are a number options when working on Windows to access the Raspberry Pi ov
 
 - Install the [putty application](https://www.putty.org)
 - On Windows 10, since autumn 2018, openssh is now included, so you can use the ssh command in a command prompt or powershell window (from a command line enter ```ssh -V``` to test if it is available on your system)
-- On Windows 10 install the [Linux system for Windows](https://docs.microsoft.com/en-us/windows/wsl/install-win10), then choose the distribution you want to use from the Windows store to give access to a linux environment running within Windows.  Once you have the linux distibution of choice installed, you should update the distribution and install ssh.  E.g. for a Debian use the following commands: ```sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get install -y ssh```
+- On Windows 10 install the [Linux system for Windows](https://docs.microsoft.com/en-us/windows/wsl/install-win10), then choose the distribution you want to use from the Windows store to give access to a linux environment running within Windows.  As Raspbioan is based on the Debian Linux distribution, it is a good option to choose.  Once you have the linux distibution of choice installed, you should update the distribution and install ssh.  E.g. for a Debian use the following commands: ```sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get install -y ssh```
 
-If using the *Linux subsystem for Windows* open the Linux application (which you will find under the distribution name in at start menu, so **Debian GNU/Linux** if you installed the Debian distribution) or if using *openssh* then open a command prompt or PowerShell window and use the ssh command as shown above for MacOS and Linux users.
+If using the *Linux subsystem for Windows* open the Linux application (which you will find under the distribution name in the start menu, so **Debian GNU/Linux** if you installed the Debian distribution) or if using *openssh* then open a command prompt or PowerShell window and use the ssh command as shown above for MacOS and Linux users.
 
 If you are using the putty application then open the application and create the setup as shown below:
 
