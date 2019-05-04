@@ -71,20 +71,7 @@ Perform the following on the pi command line:
     ```
 
 3. Make the start-batman-adv.sh file executable with command ```chmod +x ~/start-batman-adv.sh```
-4. Create the network interface definition for the bat0 interface by creating a file as root user e.g.
-
-    - ```sudo vi /etc/network/interfaces.d/bat0```
-    - ```sudo nano /etc/network/interfaces.d/bat0```
-
-    then add the following content:
-
-    ```text
-    auto bat0
-    iface bat0 inet auto
-        pre-up /usr/sbin/batctl if add wlan0
-    ```
-
-5. Create the network interface definition for the wlan0 interface by creating a file as root user e.g.
+4. Create the network interface definition for the wlan0 interface by creating a file as root user e.g.
 
     - ```sudo vi /etc/network/interfaces.d/wlan0```
     - ```sudo nano /etc/network/interfaces.d/wlan0```
@@ -97,20 +84,18 @@ Perform the following on the pi command line:
         wireless-channel 1
         wireless-essid call-code-mesh
         wireless-mode ad-hoc
-        wireless-ap 01:12:23:34:45:56
     ```
 
     You can replace:
 
     - the channel number with a [valid 2.4 GHz WiFi channel number for your region](https://en.wikipedia.org/wiki/List_of_WLAN_channels) (most regions support channels 1 to 11)
     - the essid with a network name of your choosing
-    - the ap with any valid address (6, 2 digit hexadecimal numbers, separated by colons)
 
     However, these values must be the same on ALL devices that will form your mesh network.
 
-6. Ensure the batman-adv kernel module is loaded at boot time by issuing the following command : ```echo 'batman-adv' | sudo tee --append /etc/modules```
-7. Stop the DHCP process from trying to manage the wireless lan interface by issuing the following command : ```echo 'denyinterfaces wlan0' | sudo tee --append /etc/dhcpcd.conf```
-8. Make sure the startup script gets called by editing file **/etc/rc.local** as root user, e.g.
+5. Ensure the batman-adv kernel module is loaded at boot time by issuing the following command : ```echo 'batman-adv' | sudo tee --append /etc/modules```
+6. Stop the DHCP process from trying to manage the wireless lan interface by issuing the following command : ```echo 'denyinterfaces wlan0' | sudo tee --append /etc/dhcpcd.conf```
+7. Make sure the startup script gets called by editing file **/etc/rc.local** as root user, e.g.
 
     - ```sudo vi /etc/rc.local```
     - ```sudo nano /etc/rc.local```
@@ -122,7 +107,7 @@ Perform the following on the pi command line:
     ```
 
     before the last line: **exit 0**
-9. If this pi will not be a bridge or gateway node then shut it down using command ```sudo shutdown -h now```
+8. If this pi will not be a bridge or gateway node then shut it down using command ```sudo shutdown -h now```
 
 You now have all the raspberry pi systems configured to join the mesh, so proceed to the [next section](ROUTE.md) to setup access to the Internet and also enable a bridge.
 
