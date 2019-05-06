@@ -5,6 +5,12 @@
 
 # Part 3
 
+## Create an IoT app that sends sensor data over the mesh network
+
+In this Part 3 of the [Configuring mesh networking for the IoT Edge](https://developer.ibm.com/tutorials/create-iot-mesh-network/), you will build an Internet of Things application that gathers sensor data and uses the mesh network to send the sensor data to the IBM Cloud. An IBM Cloud app receives and processes the sensor data and sends a command back to the Raspberry Pi to set the color of the LED light on the Pi.
+
+In this step, you connect the sensors, install Node-RED and some Node-RED packages, create the IoT app in IBM Cloud, and send the sensor data across the mesh to Watson IoT Platform.
+
 ## Learning Objectives
 
 - Connect Sensors
@@ -74,12 +80,12 @@ Connect three female to female jumper wires to the NeoPixel and then follow the 
 Our next step will be to install packages on the Raspberry Pi mesh nodes. The easiest way to connect from your laptop to each of the nodes is to complete the [Bridge Access Point steps](../part2/WIFIBRDG.md) from Part 2.
 
 ### Connect to each of the Raspberry Pi nodes
-Determine the IP addresses of each of the Raspberry Pi nodes in your mesh network and use **ssh** to connect to each of them.  Install the following packages on each of the Raspberry Pi node that you have connected the DHT-11 sensors and NeoPixel LEDs.
+Determine the IP addresses of each of the Raspberry Pi nodes in your mesh network and use **ssh** to connect to each of them.  Install the following packages on each of the Raspberry Pi nodes that you have connected the DHT-11 sensors and NeoPixel LEDs.
 
-### Install Node.JS on your Raspberry Pi
-*Note: The DHT sensor install does not yet work with Node.JS v12*
+### Install Node.js on your Raspberry Pi
+*Note: The DHT sensor install does not yet work with Node.js v12*
 
-Install the node-red, nodejs and some node-red pre-requistes.  The nodered package has a dependency on the nodejs package so the latest nodejs LTS will be installed. 
+These steps detail how to install the Node-RED and node.js packages and some Node-RED pre-requistes.  The nodered package has a dependency on the nodejs package.  The first command will also install the latest nodejs LTS package. 
 ```
 $ sudo apt-get install -y nodered
 $ sudo npm -g install node-pre-gyp
@@ -112,21 +118,25 @@ $ sudo make install
 ```
 
 Finally install node-red-contrib-dht-sensor
-```
+
+```bash
 $ sudo npm install --unsafe-perm -g node-red-contrib-dht-sensor
 ```
-### Reboot
+
+### Reboot your Raspberry Pi mesh node
 
 ## Section 3 - Test the Sensors and LED
 
-In this section, you will test the sensor readings by creating some simple Node-RED flows. Try to create the flows by following the steps. You can also import the solution flows from github. 
+In this section, you will test the sensor readings by creating some simple Node-RED flows. Try to create the flows by following the steps. You can also import the solution flows from github.
 
 ### Start Node-RED
 
 Reconnect to your Raspberry Pi mesh node via **ssh**, login and run the following command:
+
+```bash
+$ node-red
 ```
-node-red
-```
+
 Open a browser on your laptop to the IP Address of the Raspberry Pi mesh node. Node-RED is running on Port 1880.
 ```
 http://192.168.1.xx:1880
