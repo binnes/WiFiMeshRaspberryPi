@@ -9,23 +9,17 @@
 
 - Connect Sensors
 - Install Node-RED and Node-RED packages
+- Test the Sensors and LED
 - Create an Internet of Things Starter Application in IBM Cloud
 - Send sensor data across the mesh to the Watson IoT Platform
 
-## Prerequisites
-
-This tutorial can be completed using an IBM Cloud Lite account.
-
-* Create an [IBM Cloud account](https://cloud.ibm.com/registration)
-* Log into [IBM Cloud](https://cloud.ibm.com/login)
-
-## Connect DHT Temperature Sensor and NeoPixel LED to Raspberry Pi
+## Section 1 - Connect DHT Temperature Sensor and NeoPixel LED to Raspberry Pi
 
 ### Step 1 - Connect the DHT sensor to your Raspberry Pi
 
-Disconnect the Raspberry Pi from the power supply before connecting the DHT sensor.
+Disconnect the Raspberry Pi from the power supply before connecting the DHT sensor.  Depending on the type of DHT sensor that you ordered, there are several ways to connect them.
 
-The DHT sensors have 4 connecting pins.  When looking at the front of the sensor (mesh case) with the pins at the bottom, the connections are (left to right):
+If your DHT sensors have 4 connecting pins. follow these wiring steps.  When looking at the front of the sensor (mesh case) with the pins at the bottom, the connections are (left to right):
 
 - +'ve voltage
 - Data
@@ -71,28 +65,25 @@ Connect three female to female jumper wires to the NeoPixel and then follow the 
 * Data - Pin 12
 * 3.3v Power - Pin 1
 
-## Install Node-RED and Node-RED packages
+## Section 2 - Install Node-RED and Node-RED packages
+Our next step will be to install packages on the Raspberry Pi mesh nodes. The easiest way to connect from your laptop to each of the nodes is to complete the [Bridge Access Point steps](../part2/WIFIBRDG.md) from Part 2.
 
-### Install Node.JS v10 on your Raspberry Pi following the [node install instructions](https://github.com/nodesource/distributions).
+### Connect to each of the Raspberry Pi nodes
+Determine the IP addresses of each of the Raspberry Pi nodes and use **ssh** to connect to each of them.  Install the following packages on each of the Raspberry Pi node that you have connected the DHT-11 sensors and NeoPixel LEDs.
+
+### Install Node.JS on your Raspberry Pi
 *Note: The DHT sensor install does not yet work with Node.JS v12*
+
+Tnstall the node-red, nodejs and some node-red pre-requistes.  The nodered package has a dependency on the nodejs package so the latest nodejs LTS will be installed. 
 ```
-$ sudo bash
-$ curl -sL https://deb.nodesource.com/setup_10.x | bash -
-$ exit
-```
-Next, install the nodejs package and some pre-requistes
-```
-$ sudo apt-get install -y nodejs
+$ sudo apt-get install -y nodered
 $ sudo npm -g install node-pre-gyp
 $ sudo npm -g install node-gyp
+$ sudo update-nodejs-and-nodered
+$ sudo npm -g install node-red-contrib-ibm-watson-iot
 ```
-
-### Install Node-RED and required packages
-```
-$ sudo npm -g install node-red --unsafe-perms
-$ sudo npm -g install  node-red-contrib-ibm-watson-iot
-```
-Next install node-red-node-pi-neopixel pre-reqs
+#### node-red-node-pi-neopixel Install instructions
+Next, install node-red-node-pi-neopixel pre-reqs
 described in https://flows.nodered.org/node/node-red-node-pi-neopixel
 * Select to continue (y), but don't perform a full install (N) and don't let it configure sound (N)
 
@@ -103,7 +94,7 @@ then
 ```
 $ sudo npm -g install node-red-node-pi-neopixel
 ```
-#### DHT Sensor install
+#### node-red-contrib-dht-sensor DHT Sensor install instructions
 Follow the BMC2835 install instructions at http://www.airspayce.com/mikem/bcm2835/index.html
 ```
 $ wget http://www.airspayce.com/mikem/bcm2835/bcm2835-1.58.tar.gz
@@ -121,22 +112,61 @@ $ sudo npm install --unsafe-perm -g node-red-contrib-dht-sensor
 ```
 ### Reboot
 
+## Section 3 - Test the Sensors and LED
+
+In this section, you will test the sensors readings by creating some simple Node-RED flows. Try to create the flows by following the steps. You can also import the solution flows from github. 
+
 ### Start Node-RED
+
+Reconnect to your Raspberry Pi mesh node via **ssh**, login and run the following command:
 ```
 node-red
 ```
-Open a browser on your laptop to the IP Address of the Raspberry Pi mesh device. Node-RED is running on Port 1880.
+Open a browser on your laptop to the IP Address of the Raspberry Pi mesh node. Node-RED is running on Port 1880.
 ```
-http://192.168.1.35:1880
+http://192.168.1.xx:1880
 ```
 
-### Test the DHT-11 Temperature Sensor by building this flow
-![Node-RED DHT11 Flow](/images/Node-RED-DHT11-flow.png)
-Import this flow
+### Test the DHT Temperature Sensor by building this flow
+![Node-RED DHT11 Test Flow](/images/Node-RED-DHT11-flow.png)
+
+#### Flow Instructions:
+- Select a **Inject** node from the left palette and drag it to your flow canvas.
+- Select a **rpi-dht11** node from the palette and drag it to your flow.  Double-click on the **rpi-dht11** node. In the Edit dialog, select type of DHT sensor (DHT11 / DHT22) and the Pin number that you have connected the female jumper wire to the Raspberry Pi (Pin 15 suggested above).  Press the **Done** button to close the Edit dialog.
+- Select a **Debug** node from the palette and drag it to your flow.
+- Wire the three nodes as suggested in the screenshot.
+- Press the red **Deploy** button.
+- To test your flow, click on the tab leading into the **Inject** node.
+- Turn to the **Debug** right Node-RED pane by clicking on the little beetle bug icon)
+- To test your flow, click on the tab leading into the **Inject** node.
+
+If you are stuck, import this solution [flow](flows/dht11-test-flow.json)
 
 ### Test the NeoPixel LED by building this flow
-![Node-RED NeoPixel Flow](/images/Node-RED-NeoPixel-flow.png)
-Import this flow
+![Node-RED NeoPixel Test Flow](/images/Node-RED-NeoPixel-flow.png)
+
+Import this solution [flow](flows/neopixel-test-flow.json)
+
+### Send Sensor Data to Watson IoT Quickstart
+
+Before we embark on creating a Watson IoT Platform instance, let's send the data to the Watson IoT QuickStart page to demonstrate how to send data to the IBM Cloud.
+![Node-RED Quickstart Test Flow](/images/Node-RED-Quickstart-flow.png)
+
+Import this solution [flow](flows/quickstart-test-flow.json)
+
+## Section 4 - Create an Internet of Things Starter Application in IBM Cloud
+
+In this section, we will build an application in the IBM Cloud to receive sensor data from our mesh network and remotely control the LED.
+
+First, we need to create an Internet of Things Platform Starter. Follow all of the steps documented in the IBM Developer Tutorial - [Create an Internet of Things Platform Starter application](https://developer.ibm.com/tutorials/how-to-create-an-internet-of-things-platform-starter-application/) and return to this page.
+
+## Section 5 - Send sensor data across the mesh to the Watson IoT Platform
+
+### Create a Device Instructions
+
+### Create a Node-RED Flow in the IBM Cloud application
+
+### Create a Node-RED Flow on the mesh node to receive LED Alerts
 
 ***
 *Quick links :*
