@@ -32,10 +32,12 @@ If you have a DHT mounted on a module then you need to check the pinout, usually
 
 ### Connect the DHT-11
 
-Connect three female to female jumper wires to the DHT-11 and then follow the [pinout diagram](https://pinout.xyz/#) to connect the jumpers to the Raspberry Pi:
-- Ground - Pin 9
-- Data - Pin 15
-- 3.3v Power - Pin 17
+Connect three female to female jumper wires to the DHT-11 and then follow the Raspberry Pi [pinout diagram](https://pinout.xyz/#) to connect the jumpers to the Raspberry Pi:
+| DHT | Raspberry Pi |
+| --- | --- |
+| Ground | Pin 9 |
+| Data | Pin 15 |
+| 3.3v Power | Pin 17 |
 
 
 ### Step 2 - Connecting the Neopixel to the Raspberry Pi
@@ -57,24 +59,27 @@ So, with the shortest pin on the left and the flat side on the right the pinout 
 
 You need to connect the Data In, +'ve voltage and ground to the Raspberry Pi as shown in the diagram.  Take care to ensure that the connections are as shown, as connecting the wrong pins can damage the LED:
 
-![ModeMCU LED Wiring](../images/NodeMCU_LED_Wiring.jpg)
+![RaspPi LED Wiring](../images/RaspPi_LED_Wiring.jpg)
 
 ### Connect the NeoPixel
-Connect three female to female jumper wires to the NeoPixel and then follow the [pinout diagram](https://pinout.xyz/#) to connect the jumpers to :
-* Ground - Pin 6
-* Data - Pin 12
-* 3.3v Power - Pin 1
+Connect three female to female jumper wires to the NeoPixel and then follow the Raspberry Pi [pinout diagram](https://pinout.xyz/#) to connect the jumpers to :
+
+| NeoPixel | Raspberry Pi |
+| --- | --- |
+| Ground | Pin 6 |
+| Data | Pin 12 |
+| 3.3v Power | Pin 1 |
 
 ## Section 2 - Install Node-RED and Node-RED packages
 Our next step will be to install packages on the Raspberry Pi mesh nodes. The easiest way to connect from your laptop to each of the nodes is to complete the [Bridge Access Point steps](../part2/WIFIBRDG.md) from Part 2.
 
 ### Connect to each of the Raspberry Pi nodes
-Determine the IP addresses of each of the Raspberry Pi nodes and use **ssh** to connect to each of them.  Install the following packages on each of the Raspberry Pi node that you have connected the DHT-11 sensors and NeoPixel LEDs.
+Determine the IP addresses of each of the Raspberry Pi nodes in your mesh network and use **ssh** to connect to each of them.  Install the following packages on each of the Raspberry Pi node that you have connected the DHT-11 sensors and NeoPixel LEDs.
 
 ### Install Node.JS on your Raspberry Pi
 *Note: The DHT sensor install does not yet work with Node.JS v12*
 
-Tnstall the node-red, nodejs and some node-red pre-requistes.  The nodered package has a dependency on the nodejs package so the latest nodejs LTS will be installed. 
+Install the node-red, nodejs and some node-red pre-requistes.  The nodered package has a dependency on the nodejs package so the latest nodejs LTS will be installed. 
 ```
 $ sudo apt-get install -y nodered
 $ sudo npm -g install node-pre-gyp
@@ -114,7 +119,7 @@ $ sudo npm install --unsafe-perm -g node-red-contrib-dht-sensor
 
 ## Section 3 - Test the Sensors and LED
 
-In this section, you will test the sensors readings by creating some simple Node-RED flows. Try to create the flows by following the steps. You can also import the solution flows from github. 
+In this section, you will test the sensor readings by creating some simple Node-RED flows. Try to create the flows by following the steps. You can also import the solution flows from github. 
 
 ### Start Node-RED
 
@@ -132,12 +137,12 @@ http://192.168.1.xx:1880
 
 #### Flow Instructions:
 - Select a **Inject** node from the left palette and drag it to your flow canvas.
-- Select a **rpi-dht11** node from the palette and drag it to your flow.  Double-click on the **rpi-dht11** node. In the Edit dialog, select type of DHT sensor (DHT11 / DHT22) and the Pin number that you have connected the female jumper wire to the Raspberry Pi (Pin 15 suggested above).  Press the **Done** button to close the Edit dialog.
+- Select a **rpi-dht22** node from the palette and drag it to your flow.  Double-click on the **rpi-dht22** node. In the Edit dialog, select type of DHT sensor (DHT11 / DHT22) and the Pin number that you have connected the female jumper wire to the Raspberry Pi (Pin 15 suggested above).  Press the **Done** button to close the Edit dialog.
 - Select a **Debug** node from the palette and drag it to your flow.
 - Wire the three nodes as suggested in the screenshot.
 - Press the red **Deploy** button.
 - To test your flow, click on the tab leading into the **Inject** node.
-- Turn to the **Debug** right Node-RED pane by clicking on the little beetle bug icon)
+- Turn to the Node-RED **Debug** right pane by clicking on the little beetle bug icon)
 - To test your flow, click on the tab leading into the **Inject** node.
 
 If you are stuck, import this solution [flow](flows/dht11-test-flow.json)
@@ -158,15 +163,24 @@ Import this solution [flow](flows/quickstart-test-flow.json)
 
 In this section, we will build an application in the IBM Cloud to receive sensor data from our mesh network and remotely control the LED.
 
-First, we need to create an Internet of Things Platform Starter. Follow all of the steps documented in the IBM Developer Tutorial - [Create an Internet of Things Platform Starter application](https://developer.ibm.com/tutorials/how-to-create-an-internet-of-things-platform-starter-application/) and return to this page.
-
 ## Section 5 - Send sensor data across the mesh to the Watson IoT Platform
 
 ### Create a Device Instructions
 
 ### Create a Node-RED Flow in the IBM Cloud application
 
+While we're still working in IBM Cloud, let's launch your Internet of Things Starter Application Node-RED flow. Create a flow that will subscribe to the Raspberry Pi Mesh Node sensor MQTT data. As this temperature data arrives, the flow will determine the temperature thresholds and send a command back to the mesh node to change the LED. 
+![Node-RED Cloud Send Mesh Alert Flow](/images/Node-RED-Cloud-Send-Mesh-Alert-flow.png)
+
+Import this solution [flow](flows/cloud-send-mesh-alert-flow.json)
+
 ### Create a Node-RED Flow on the mesh node to receive LED Alerts
+
+Return to the Node-RED flow on the Raspberry Pi mesh node. Create a new flow by clicking on the **+** button.  Name this flow "Watson IoT".  The flow will read DHT Sensor Data and send via MQTT to Watson IoT Platform using the registered device credentials we just created.  The flow will also subscribe to LED Alerts that are published by the IBM Cloud Node-RED flow.  The temperature thresholds were determined in the IBM Cloud and alerts are transmitted back to the mesh node for control.  The flow will listen to these Alert commands and set the NeoPixel LED. 
+![Node-RED Cloud Send Mesh Alert Flow](/images/Node-RED-IoT-Alert-flow.png)
+
+Import this solution [flow](flows/send-dht-data-2-cloud.json)
+
 
 ***
 *Quick links :*

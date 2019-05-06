@@ -1,0 +1,293 @@
+[
+    {
+        "id": "8f529d4.4551be",
+        "type": "tab",
+        "label": "PiMesh Set LED",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "7636de08.543cf8",
+        "type": "ibmiot in",
+        "z": "8f529d4.4551be",
+        "authentication": "boundService",
+        "apiKey": "",
+        "inputType": "evt",
+        "logicalInterface": "",
+        "ruleId": "",
+        "deviceId": "RaspiMeshNode1",
+        "applicationId": "",
+        "deviceType": "+",
+        "eventType": "+",
+        "commandType": "",
+        "format": "json",
+        "name": "IBM IoT",
+        "service": "registered",
+        "allDevices": false,
+        "allApplications": "",
+        "allDeviceTypes": true,
+        "allLogicalInterfaces": "",
+        "allEvents": true,
+        "allCommands": "",
+        "allFormats": "",
+        "qos": 0,
+        "x": 70,
+        "y": 60,
+        "wires": [
+            [
+                "9b3b175a.07036",
+                "32ee2a39.34debe"
+            ]
+        ]
+    },
+    {
+        "id": "a09026b.7678958",
+        "type": "change",
+        "z": "8f529d4.4551be",
+        "name": "Set LED Blue",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"r\":0,\"g\":0,\"b\":255}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 410,
+        "y": 110,
+        "wires": [
+            [
+                "91ca9416.a87e28",
+                "b58d31c2.2f4528"
+            ]
+        ]
+    },
+    {
+        "id": "91ca9416.a87e28",
+        "type": "ibmiot out",
+        "z": "8f529d4.4551be",
+        "authentication": "boundService",
+        "apiKey": "",
+        "outputType": "cmd",
+        "deviceId": "na",
+        "deviceType": "raspi",
+        "eventCommandType": "LED",
+        "format": "json",
+        "data": "{}",
+        "qos": 0,
+        "name": "IBM IoT",
+        "service": "registered",
+        "x": 680,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "32ee2a39.34debe",
+        "type": "switch",
+        "z": "8f529d4.4551be",
+        "name": "",
+        "property": "payload.d.temperature",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lte",
+                "v": "0",
+                "vt": "num"
+            },
+            {
+                "t": "btwn",
+                "v": "0",
+                "vt": "num",
+                "v2": "10",
+                "v2t": "num"
+            },
+            {
+                "t": "btwn",
+                "v": "10",
+                "vt": "num",
+                "v2": "25",
+                "v2t": "num"
+            },
+            {
+                "t": "btwn",
+                "v": "25",
+                "vt": "num",
+                "v2": "30",
+                "v2t": "num"
+            },
+            {
+                "t": "gte",
+                "v": "30",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 5,
+        "x": 220,
+        "y": 180,
+        "wires": [
+            [
+                "a09026b.7678958"
+            ],
+            [
+                "ad15637d.280b5"
+            ],
+            [
+                "7d1b3c99.f1886c"
+            ],
+            [
+                "130281ad.35b14e"
+            ],
+            [
+                "e03c47a4.c61428"
+            ]
+        ]
+    },
+    {
+        "id": "ad15637d.280b5",
+        "type": "change",
+        "z": "8f529d4.4551be",
+        "name": "Set LED Turquoise",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"r\":0,\"g\":150,\"b\":150}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 420,
+        "y": 145,
+        "wires": [
+            [
+                "91ca9416.a87e28",
+                "b58d31c2.2f4528"
+            ]
+        ]
+    },
+    {
+        "id": "7d1b3c99.f1886c",
+        "type": "change",
+        "z": "8f529d4.4551be",
+        "name": "Set LED Green",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{ \"r\" : 0, \"g\" : 255, \"b\" : 0 }",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 410,
+        "y": 180,
+        "wires": [
+            [
+                "91ca9416.a87e28",
+                "b58d31c2.2f4528"
+            ]
+        ]
+    },
+    {
+        "id": "130281ad.35b14e",
+        "type": "change",
+        "z": "8f529d4.4551be",
+        "name": "Set LED Yellow",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{ \"r\" : 150, \"g\" : 150, \"b\" : 0 }",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 410,
+        "y": 215,
+        "wires": [
+            [
+                "91ca9416.a87e28",
+                "b58d31c2.2f4528"
+            ]
+        ]
+    },
+    {
+        "id": "e03c47a4.c61428",
+        "type": "change",
+        "z": "8f529d4.4551be",
+        "name": "Set LED RED",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{ \"r\" : 255, \"g\" : 0, \"b\" : 0 }",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 410,
+        "y": 250,
+        "wires": [
+            [
+                "91ca9416.a87e28",
+                "b58d31c2.2f4528"
+            ]
+        ]
+    },
+    {
+        "id": "b58d31c2.2f4528",
+        "type": "debug",
+        "z": "8f529d4.4551be",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 680,
+        "y": 110,
+        "wires": []
+    },
+    {
+        "id": "9b3b175a.07036",
+        "type": "debug",
+        "z": "8f529d4.4551be",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 250,
+        "y": 60,
+        "wires": []
+    }
+]
