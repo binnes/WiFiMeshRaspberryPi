@@ -205,15 +205,20 @@ Create a Device Type named raspi and a DeviceID named RaspiMeshNode1.
 While we're still working in IBM Cloud, let's launch your Internet of Things Starter Application Node-RED flow. Create a flow that will subscribe to the Raspberry Pi Mesh Node sensor MQTT data. As this temperature data arrives, the flow will determine the temperature thresholds and send a command back to the mesh node to change the LED. 
 ![Node-RED Cloud Send Mesh Alert Flow](/images/Node-RED-Cloud-Send-Mesh-Alert-flow.png)
 
-Import this solution [flow](flows/cloud-send-mesh-alert-flow.json)
+Import this solution flow.
+<p align="center">
+  <strong>Get the Code: <a href="flows/cloud-send-mesh-alert-flow.json">Node-RED Cloud Send Mesh Alert Flow</strong></a>
+</p>
 
 ### Create a Node-RED Flow on the mesh node to receive LED Alerts
 
 Return to the Node-RED flow on the Raspberry Pi mesh node. Create a new flow by clicking on the **+** button.  Name this flow "Watson IoT".  The flow will read DHT Sensor Data and send via MQTT to Watson IoT Platform using the registered device credentials we just created.  The flow will also subscribe to LED Alerts that are published by the IBM Cloud Node-RED flow.  The temperature thresholds were determined in the IBM Cloud and alerts are transmitted back to the mesh node for control.  The flow will listen to these Alert commands and set the NeoPixel LED. 
-![Node-RED Cloud Send Mesh Alert Flow](/images/Node-RED-IoT-Alert-flow.png)
+![Node-RED Mesh node Alert Flow](/images/Node-RED-IoT-Alert-flow.png)
 
-Import this solution [flow](flows/send-dht-data-2-cloud.json)
-
+Import this solution flow.
+<p align="center">
+  <strong>Get the Code: <a href="flows/send-dht-data-2-cloud.json">Node-RED flow to Send Data from the Mesh node and receive Alerts</strong></a>
+</p>
 
 ***
 *Quick links :*
