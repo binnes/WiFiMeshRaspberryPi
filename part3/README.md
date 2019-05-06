@@ -146,28 +146,43 @@ http://192.168.1.xx:1880
 ![Node-RED DHT11 Test Flow](/images/Node-RED-DHT11-flow.png)
 
 #### Flow Instructions:
-- Select a **Inject** node from the left palette and drag it to your flow canvas.
+- Select an **Inject** node from the left palette and drag it to your flow canvas.
 - Select a **rpi-dht22** node from the palette and drag it to your flow.  Double-click on the **rpi-dht22** node. In the Edit dialog, select type of DHT sensor (DHT11 / DHT22) and the Pin number that you have connected the female jumper wire to the Raspberry Pi (Pin 15 suggested above).  Press the **Done** button to close the Edit dialog.
 - Select a **Debug** node from the palette and drag it to your flow.
 - Wire the three nodes as suggested in the screenshot.
 - Press the red **Deploy** button.
 - To test your flow, click on the tab leading into the **Inject** node.
-- Turn to the Node-RED **Debug** right pane by clicking on the little beetle bug icon)
+- Turn to the Node-RED **Debug** right pane by clicking on the little beetle bug icon.
 - To test your flow, click on the tab leading into the **Inject** node.
 
-If you are stuck, import this solution [flow](flows/dht11-test-flow.json)
+If you are stuck, import this solution flow.
+- Open the “Get the Code” github URL listed below, mark or Ctrl-A to select all of the text, and copy the text for the flow to your Clipboard. Click on the Node-RED Menu, then Import, then Clipboard. Paste the text of the flow into the Import nodes dialog and press the red Import button.
+
+<p align="center">
+  <strong>Get the Code: <a href="flows/dht11-test-flow.json">Node-RED DHT Test Flow</strong></a>
+</p>
 
 ### Test the NeoPixel LED by building this flow
 ![Node-RED NeoPixel Test Flow](/images/Node-RED-NeoPixel-flow.png)
 
-Import this solution [flow](flows/neopixel-test-flow.json)
+The NeoPixel Test flow uses **Inject** nodes and **Change** nodes to send RBG color values to the NeoPixel LED. Import this solution flow.
+<p align="center">
+  <strong>Get the Code: <a href="flows/neopixel-test-flow.json">Node-RED NeoPixel Test Flow</strong></a>
+</p>
 
 ### Send Sensor Data to Watson IoT Quickstart
 
 Before we embark on creating a Watson IoT Platform instance, let's send the data to the Watson IoT QuickStart page to demonstrate how to send data to the IBM Cloud.
 ![Node-RED Quickstart Test Flow](/images/Node-RED-Quickstart-flow.png)
 
-Import this solution [flow](flows/quickstart-test-flow.json)
+The Quickstart test flow uses an **Inject** node on a 10 second timer to query the temperature and humidity from the DHT sensor, formats the data using a **Template** node (or a **Change** node) and then, using an **Watson IoT** node, sends the data to the Watson IoT Quickstart service.  Import this solution flow.
+<p align="center">
+  <strong>Get the Code: <a href="flows/quickstart-test-flow.json">Node-RED Watson IoT Quickstart Test Flow</strong></a>
+</p>
+
+Visit the [Watson Quickstart dashboard](https://quickstart.internetofthings.ibmcloud.com/#/) to see your IoT mesh edge data arriving in the IBM Cloud.  Enter your Device ID specified in the IBM IoT
+
+![Watson IoT Quickstart Dashboard](/images/IBMCloud-WatsonIoT-Quickstart.png)
 
 ## Section 4 - Create an Internet of Things Starter Application in IBM Cloud
 
