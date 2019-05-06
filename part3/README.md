@@ -163,9 +163,17 @@ Import this solution [flow](flows/quickstart-test-flow.json)
 
 In this section, we will build an application in the IBM Cloud to receive sensor data from our mesh network and remotely control the LED.
 
+First, we need to create an Internet of Things Platform Starter. Follow all of the steps documented in the IBM Developer Tutorial - [Create an Internet of Things Platform Starter application](https://developer.ibm.com/tutorials/how-to-create-an-internet-of-things-platform-starter-application/) and return to this page.
+
 ## Section 5 - Send sensor data across the mesh to the Watson IoT Platform
 
 ### Create a Device Instructions
+
+From the IBM Cloud Dashboard, search for and launch the Watson IoT Platform instance that was just created.
+![Watson IoT Platform Service](/images/IBMCloud-WatsonIoTPlatform-Service.png)
+
+Create a Device Type named raspi and a DeviceID named RaspiMeshNode1.
+![Watson IoT Platform Device](/images/IBMCloud-WatsonIoTPlatform-Device.png)
 
 ### Create a Node-RED Flow in the IBM Cloud application
 
