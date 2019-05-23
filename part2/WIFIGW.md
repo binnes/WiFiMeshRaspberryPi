@@ -36,7 +36,7 @@ To connect to a WiFi network the raspberry pi uses a configuration file /etc/wpa
     - set the **network name** to be the name of the network you want to join
     - set the **password** to the network password you want to join
 
-## Updating the mech traffic routing for WiFi
+## Updating the mesh traffic routing for WiFi
 
 The rules in file start-batman-adv.sh need to be updated to route traiffic to the wlan1 interface rather than the eth0 interface.
 
