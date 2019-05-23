@@ -39,6 +39,7 @@ If you have a DHT mounted on a module then you need to check the pinout, usually
 ### Connect the DHT-11
 
 Connect three female to female jumper wires to the DHT-11 and then follow the Raspberry Pi [pinout diagram](https://pinout.xyz/#) to connect the jumpers to the Raspberry Pi:
+
 | DHT | Raspberry Pi |
 | --- | --- |
 | Ground | Pin 9 |
