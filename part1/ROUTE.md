@@ -213,7 +213,7 @@ To verify that your mesh network is working you should have your laptop connecte
 5. Issue command ```sudo batctl n``` to show the neighbouring mesh nodes your gateway node can see. You should see something similar to this:
 
     ```text
-    [B.A.T.M.A.N. adv 2017.3, MainIF/MAC: wlan0/b8:27:eb:8e:ec:6c (bat0/ba:bf:0a:fd:33:e5 BATMAN_IV)]
+    [B.A.T.M.A.N. adv 2018.3, MainIF/MAC: wlan0/b8:27:eb:8e:ec:6c (bat0/ba:bf:0a:fd:33:e5 BATMAN_IV)]
     IF             Neighbor             last-seen
         wlan0       b8:27:eb:bd:4d:e5   0.980s
         wlan0       b8:27:eb:01:d4:bb   0.730s

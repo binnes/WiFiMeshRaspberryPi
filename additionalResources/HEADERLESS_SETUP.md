@@ -27,7 +27,7 @@ If your laptop has Ethernet capability and you are working with a Raspberry Pi 3
 
 If you don't have Ethernet connectivity options then you need to enable WiFi on the Raspberry Pi.  To do this you need to add another file to the boot partition of the SD card called **wpa_supplicant.conf** and it should have the following content:
 
-    ```text
+    ```plain
     ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
     update_config=1
     country=GB

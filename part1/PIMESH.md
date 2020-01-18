@@ -119,9 +119,9 @@ Perform the following on the pi command line:
     echo 'batman-adv' | sudo tee --append /etc/modules
     ```
 
-6. Stop the DHCP process from trying to manage the wireless lan interface by issuing the following command : 
+6. Stop the DHCP process from trying to manage the wireless lan interface by issuing the following command :
 
-    ```text 
+    ```text
     echo 'denyinterfaces wlan0' | sudo tee --append /etc/dhcpcd.conf
     ```
 
