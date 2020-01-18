@@ -1,0 +1,222 @@
+[
+    {
+        "id": "97d4bf46.d9854",
+        "type": "tab",
+        "label": "Watson IoT",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "bc67d749.275e68",
+        "type": "inject",
+        "z": "97d4bf46.d9854",
+        "name": "Poll every 10 seconds",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "repeat": "10",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 150,
+        "y": 100,
+        "wires": [
+            [
+                "6cb8a5da.541a04"
+            ]
+        ]
+    },
+    {
+        "id": "5290d5a5.691b94",
+        "type": "debug",
+        "z": "97d4bf46.d9854",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 810,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "30fb32d6.67e2b6",
+        "type": "comment",
+        "z": "97d4bf46.d9854",
+        "name": "Reformat DHT data ",
+        "info": "Reformat DHT data into a MQTT payload that\nWatson IoT Platform Quickstart will plot\n\nConvert:\nmsg.\n    topic: \"rpi-dht11\"\n    payload: \"20.00\"\n    humidity: \"33.00\"\n    isValid: true\n    errors: 2\n    sensorid: \"dht11\"\n    \nto msg.payload = \n{\n    \"d\": {\n        \"temperature\": \"20.00\",\n        \"humidity\": \"33.00\"\n    }\n}",
+        "x": 550,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "6cb8a5da.541a04",
+        "type": "rpi-dht22",
+        "z": "97d4bf46.d9854",
+        "name": "",
+        "topic": "rpi-dht11",
+        "dht": "11",
+        "pintype": "2",
+        "pin": "15",
+        "x": 360,
+        "y": 100,
+        "wires": [
+            [
+                "7f36ffa1.2e3fb"
+            ]
+        ]
+    },
+    {
+        "id": "2e092772.8109d",
+        "type": "wiotp out",
+        "z": "97d4bf46.d9854",
+        "authType": "d",
+        "qs": "false",
+        "qsDeviceId": "",
+        "deviceKey": "64bb50d4.287128",
+        "deviceType": "",
+        "deviceId": "",
+        "event": "event",
+        "format": "json",
+        "qos": "",
+        "name": "",
+        "x": 790,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "7f36ffa1.2e3fb",
+        "type": "change",
+        "z": "97d4bf46.d9854",
+        "name": "Build IoT MQTT payload",
+        "rules": [
+            {
+                "t": "set",
+                "p": "temperature",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"d\":{\"temperature\":0,\"humidity\":0}}",
+                "tot": "json"
+            },
+            {
+                "t": "set",
+                "p": "payload.d.temperature",
+                "pt": "msg",
+                "to": "temperature",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.d.humidity",
+                "pt": "msg",
+                "to": "humidity",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 570,
+        "y": 100,
+        "wires": [
+            [
+                "5290d5a5.691b94",
+                "2e092772.8109d"
+            ]
+        ]
+    },
+    {
+        "id": "cc948dd.9cf25f",
+        "type": "wiotp in",
+        "z": "97d4bf46.d9854",
+        "authType": "d",
+        "deviceKey": "64bb50d4.287128",
+        "deviceType": "",
+        "deviceId": "",
+        "command": "LED",
+        "commandType": "g",
+        "qos": 0,
+        "name": "",
+        "x": 110,
+        "y": 280,
+        "wires": [
+            [
+                "44cf6294.bbdf84",
+                "1f8c7d6.cfce803"
+            ]
+        ]
+    },
+    {
+        "id": "44cf6294.bbdf84",
+        "type": "debug",
+        "z": "97d4bf46.d9854",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 310,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "ec0ca716.cce6d",
+        "type": "rpi-neopixels",
+        "z": "97d4bf46.d9854",
+        "name": "Set LED Color",
+        "pixels": "1",
+        "bgnd": "",
+        "fgnd": "",
+        "wipe": "40",
+        "mode": "pcent",
+        "rgb": "grb",
+        "brightness": "100",
+        "gamma": true,
+        "x": 560,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "1f8c7d6.cfce803",
+        "type": "template",
+        "z": "97d4bf46.d9854",
+        "name": "Build LED Alert Color",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{{payload.r}},{{payload.g}},{{payload.b}}",
+        "output": "str",
+        "x": 340,
+        "y": 300,
+        "wires": [
+            [
+                "ec0ca716.cce6d"
+            ]
+        ]
+    },
+    {
+        "id": "64bb50d4.287128",
+        "type": "wiotp-credentials",
+        "z": "",
+        "name": "",
+        "org": "abcdef",
+        "serverName": "abcdef.messaging.internetofthings.ibmcloud.com",
+        "devType": "raspi",
+        "devId": "RaspiMeshNode1",
+        "keepalive": "60",
+        "cleansession": true,
+        "tls": "",
+        "usetls": false
+    }
+]
