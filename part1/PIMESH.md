@@ -17,37 +17,52 @@ You need to complete the following steps on all the Raspberry Pis that you want 
 
 ## Create the SD card and perform initial setup
 
-1. Download the latest Raspbian image from [https://www.raspberrypi.org/downloads/raspbian/](https://www.raspberrypi.org/downloads/raspbian/).  Choose the Raspbian Stretch Lite version.
+1. Download the latest Raspbian image from [https://www.raspberrypi.org/downloads/raspbian/](https://www.raspberrypi.org/downloads/raspbian/).  Choose the Raspbian Buster Lite version.
 2. Flash the image to an SD card suitable for your Raspberry Pi.  Instructions are available [here](https://www.raspberrypi.org/documentation/installation/installing-images/README.md) if needed.
 3. If you are doing a [headerless setup](/additionalResources/HEADERLESS_SETUP.md) insert the SD card back into your computer.  Open a command line or terminal on your computer and change to the directory where the SD card boot partition is mounted and create an empty file in the boot partition called ssh:
     - *Linux* : ```touch ssh```
     - *MacOS* : ```touch ssh```
-    - *Windows command prompt* :  ```type NUL >> ssh```
+    - *Windows command prompt* : ```type NUL >> ssh```
     - *Windows PowerShell* : ```echo $null >> ssh```
 
-    *optionally, create the wpa_supplicant.conf file or modify the cmdline.txt and config.txt files if you need OTG mode or WiFi connectivity*
+        *optionally, create the wpa_supplicant.conf file or modify the cmdline.txt and config.txt files if you need OTG mode or WiFi connectivity*
 
     Eject the SD card from your operating system and remove the card from your computer.
 4. Insert the SD card into the Raspberry Pi and then power on the Raspberry Pi.
 5. Login to the pi with user **pi** and password **raspberry**.  If using headerless setup then connect via [ssh](/additionalResources/COMMAND_LINE_ACCESS.md).  The hostname on first boot is **raspberrypi.local**.  
-6. On the Raspberry Pi command line issue the command ```sudo raspi-config``` and then go through and change the following settings:
-    - Change the user password (don't forget it, as you will need it everytime you remotely connect to the Pi)
+6. On the Raspberry Pi command line issue the command
+
+    ```sudo raspi-config```
+
+    and then go through and change the following settings:
+    - Change the user password (don't forget it, as you will need it every time you remotely connect to the Pi)
     - Network Options - Hostname
     - Localisation Options - set Locale, Timezone and WiFi country to match your location
     - Network Option - WiFi.  If your pi is not connected to the internet already, use this option to setup WiFi connectivity to ensure your Pi has access to the internet
     - interfacing Options - SSH, ensure SSH server is enabled
 
     Exit raspi-config, don't reboot yet.
-7. Issue command ```sudo apt-get update && sudo apt-get upgrade -y```
-8. Reboot the Raspberry Pi with command ```sudo reboot -n```
+7. Issue command
+
+    ```sudo apt-get update && sudo apt-get upgrade -y```
+8. Reboot the Raspberry Pi with command
+
+    ```sudo reboot -n```
 
 ## Setup batman-adv
 
-Once the Pi has rebooted, get to the command line (remember your pi now has a new hostname and the pi user has a new password that you set in the previous section).  If connecting via ssh, the ssh command line command is ```ssh pi@hostname.local```, replacing **hostname** with the name you specified.
+Once the Pi has rebooted, get to the command line (remember your pi now has a new hostname and the pi user has a new password that you set in the previous section).  If connecting via ssh, the ssh command line command is:
+
+```ssh pi@hostname.local```
+
+replacing **hostname** with the name you specified.
 
 Perform the following on the pi command line:
 
-1. To manage the mesh network, a utility called **batctl** needs to be installed.  This can be done using command ```sudo apt-get install -y batctl```
+1. To manage the mesh network, a utility called **batctl** needs to be installed.  This can be done using command
+
+    ```sudo apt-get install -y batctl```
+
 2. Using your preferred editor create a file ~/start-batman-adv.sh
 
     e.g.
@@ -70,7 +85,7 @@ Perform the following on the pi command line:
     sudo ifconfig bat0 up
     ```
 
-3. Make the start-batman-adv.sh file executable with command : 
+3. Make the start-batman-adv.sh file executable with command :
 
     ```text
     chmod +x ~/start-batman-adv.sh

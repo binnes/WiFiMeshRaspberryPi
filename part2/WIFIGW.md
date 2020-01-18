@@ -36,9 +36,9 @@ To connect to a WiFi network the raspberry pi uses a configuration file /etc/wpa
     - set the **network name** to be the name of the network you want to join
     - set the **password** to the network password you want to join
 
-## Updating the mech traffic routing for WiFi
+## Updating the mesh traffic routing for WiFi
 
-The rules in file start-batman-adv.sh need to be updated to route traiffic to the wlan1 interface rather than the eth0 interface.
+The rules in file start-batman-adv.sh need to be updated to route traffic to the wlan1 interface rather than the eth0 interface.
 
 1. Edit file ~/start-batman-adv.sh and set the content to:
 
@@ -101,7 +101,7 @@ The rules in file start-batman-adv.sh need to be updated to route traiffic to th
     - wlan1 is in Managed mode and is connected to your home/office network ESSID (which you entered in wpa_supplicant)
 
 7. Check the mesh configuration is still OK, as you did in part 1 with commands  ```sudo batctl if``` and ```sudo batctl n```
-8. From your gateway raspberry pi, ssh to another node on the mesh (or connect your laptop to the bridged node) and on a commandline on the mesh node enter command ```ping www.ibm.com -c 5``` to verify that routing to the internet and back is working correctly.
+8. From your gateway raspberry pi, ssh to another node on the mesh (or connect your laptop to the bridged node) and on a command line on the mesh node enter command ```ping www.ibm.com -c 5``` to verify that routing to the internet and back is working correctly.
 
 You now have your gateway working using a WiFi connection to your home/office network.  Proceed to the [next section](WIFIBRDG.md) if you want to enable an access point to allow devices to connect to the mesh network via WiFi.  If you don't need to WiFi enable a bridge node then you can move to [part 3](/part3/README.md)
 

@@ -7,13 +7,13 @@
 
 # Additional Resources - Prerequisites and setup
 
-The [home page](/README.md) set out the prerequisites for this workshop.  This section will add more details about the prerequsites.
+The [home page](/README.md) set out the prerequisites for this workshop.  This section will add more details about the prerequisites.
 
 ## Hardware needed
 
 ### Raspberry Pi boards
 
-To complete the workshop you need to have at least 2 Raspberry Pi 3 Model B or B+ boards.  You can extend the mesh and add additional Raspberry Pi boards, so long as they can participate in the WiFi mesh (details below)
+To complete the workshop you need to have at least 2 Raspberry Pi 3 or 4 Model B(+) boards.  You can extend the mesh and add additional Raspberry Pi boards, so long as they can participate in the WiFi mesh (details below)
 
 For each Raspberry Pi you want to use in the mesh you need:
 
@@ -23,11 +23,11 @@ For each Raspberry Pi you want to use in the mesh you need:
 - microSD card (8MB or larger)
 - Optional USB hub for Pi Zero/Pi 1A+, if setting up with keyboard and mouse (It is possible to setup without keyboard, mouse and monitor using [headerless setup](/additionalResources/HEADERLESS_SETUP.md))
 - Optional mini-HDMI to HDMI converter for Pi Zero is setting up with Keyboard, mouse and monitor
-- Optional USB WiFi dongle for Pi Zero/Pi 1 Model A+ or the Pi 3B(+) Gateway/Bridge nodes if you want to do [part 2](/part2/README.md) to add WiFi connectivity instead of Ethernet.
+- Optional USB WiFi dongle for Pi Zero/Pi 1 Model A+ or the Pi 3 or 4 B(+) Gateway/Bridge nodes if you want to do [part 2](/part2/README.md) to add WiFi connectivity instead of Ethernet.
 
 In addition to the Raspberry Pis, you need:
 
-- 2 x Ethernet cables (this assumes Ethernet connectivity is available to your home/office network and your laptop has an Ethernet port or you have the appropiate adapter to add Ethernet connectivity)
+- 2 x Ethernet cables (this assumes Ethernet connectivity is available to your home/office network and your laptop has an Ethernet port or you have the appropriate adapter to add Ethernet connectivity)
 - An USB SD reader/writer if your laptop doesn't have this built in
 
 ![mesh diagram](/images/PiMesh.png)
@@ -36,12 +36,12 @@ The following Raspberry Pi boards have been tested (using [Raspbian Stretch Lite
 
 - Raspberry Pi 3 Model B : Gateway Node, Bridge Node or Mesh Node (additional USB WiFi dongle needed for WiFi connected Gateway or Bridge Node)
 - Raspberry Pi 3 Model B+ : Gateway Node, Bridge Node or Mesh Node (additional USB WiFi dongle needed for WiFi connected Gateway or Bridge Node)
+- Raspberry Pi 4 Model B : Gateway Node, Bridge Node or Mesh Node (additional USB WiFi dongle needed for WiFi connected Gateway or Bridge Node)
 - Raspberry Pi Zero W : Mesh Node
 - Raspberry Pi Zero (With micro USB->USB_A converter cable and USB WiFi dongle): Mesh Node
-- Raspberry Pi Zero W : Mesh Node
 - Raspberry Pi 1 Model A+ (with USB WiFi Dongle) : Mesh Node
 
-If using a USB WiFi dongle to act as the Mesh interface, then you can verify that the WiFi dongle supports mesh networking.  All Raspberry Pis integrated WiFi supports mesh, but if you are using an additional USB WiFi dongle then connect the WiFi dongle to your pi, logon to the Pi and run command ```iw list```.  You will see all the WiFi interfaces with all the capabilities.  For Mesh network support you are looking for the **Supported interface modes** section to verify **IBSS** mode is supported:
+If using a USB WiFi dongle to act as the Mesh interface, then you can verify that the WiFi dongle supports mesh networking.  All Raspberry Pis integrated WiFi supports mesh, but if you are using an additional USB WiFi dongle then connect the WiFi dongle to your pi, log on to the Pi and run command ```iw list```.  You will see all the WiFi interfaces with all the capabilities.  For Mesh network support you are looking for the **Supported interface modes** section to verify **IBSS** mode is supported:
 
     ```text
     Supported interface modes:
@@ -60,7 +60,7 @@ If using a USB WiFi dongle to act as the Mesh interface, then you can verify tha
 For [part 3](/part3/README.md) you need to have the following components:
 
 - DHT11 or DHT22 temperature and humidity sensor
-- addressable RGB LED (often called a neopixel)
+- addressable RGB LED (often called a Neopixel)
 - 6 x F2F connector cables (often called dupont cable)
 
 When purchasing these you may find the following helpful:

@@ -33,7 +33,7 @@ Note the configuration below leaves interface eth0 in the configuration, so you 
     wpa_passphrase=passw0rd
     ```
 
-    You can change the SSID and the passphrase to something you'd prefer, as these configure the accesspoint your devices will connect to.
+    You can change the SSID and the passphrase to something you'd prefer, as these configure the access point your devices will connect to.
 
     The above configuration sets up a 2.4GHz network on channel 7, again, you can change all the details to match your WiFi dongle and preferred network.  You can find details of all possible options for the config file [here](https://w1.fi/cgit/hostap/plain/hostapd/hostapd.conf)
 
@@ -62,7 +62,7 @@ Note the configuration below leaves interface eth0 in the configuration, so you 
     DAEMON_OPTS="-B"
     ```
 
-    notice the DAEMON_OPTS option.  This should not need to be set, but I noticed in the latest version of Raspbian lite, the -B options is not set in the startup script, which causes the service to timeout and be restarted, which resets all WiFi connections to the Access Point.
+    notice the DAEMON_OPTS option.  This should not need to be set, but I noticed in the latest version of Raspbian lite, the -B options is not set in the startup script, which causes the service to time out and be restarted, which resets all WiFi connections to the Access Point.
 4. Modify the last line of file **/etc/dhcpcd.conf** as root user and add wlan1 to the list of denied interfaces:
 
     ```text

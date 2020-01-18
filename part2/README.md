@@ -13,7 +13,7 @@ In this part of the workshop you will see how to connect the gateway node to you
 
 To complete the following sections you need to have additional WiFi USB dongle(s).
 
-Having an additinal WiFi interface connected to the Raspberry Pi does use more power, so ensure you have an adequate power supply for the Raspberry Pis.  Your latop USB port may not supply enough power for the WiFi interfaces to work correctly.
+Having an additional WiFi interface connected to the Raspberry Pi does use more power, so ensure you have an adequate power supply for the Raspberry Pis.  Your laptop USB port may not supply enough power for the WiFi interfaces to work correctly.
 
 If you do not need WiFi enabled gateway or bridge you can skip this part and move to [part 3](/part3/README.md)
 

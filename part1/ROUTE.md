@@ -15,7 +15,7 @@ In this section you will add a gateway device to allow the mesh traffic to be ro
 
 ![network diagram](/images/PiMesh.png)
 
-This workshop shows 2 different ways of connecting netowrks.  A Gateway device and a bridge device, so what is the difference?
+This workshop shows 2 different ways of connecting networks.  A Gateway device and a bridge device, so what is the difference?
 
 A Gateway:
 
@@ -36,11 +36,11 @@ A bridge:
 
 You could choose to implement 2 bridges or 2 gateways depending on how you want to separate the networks.  The step-by-step instructions will implement a gateway and a bridge, as shown in the diagram above.
 
-The instructions below will be using the Ethernet connection on a Pi 3B, if you can't use Ethernet and need to use WiFi then jump to part 2, where WiFi connectivity is covered (you will need additional WiFi USB dongles).
+The instructions below will be using the Ethernet connection on a Pi 3/4B, if you can't use Ethernet and need to use WiFi then jump to part 2, where WiFi connectivity is covered (you will need additional WiFi USB dongles).
 
 ## Creating the gateway
 
-In this section you will convert one of your mesh Raspberry Pi 3B devices to act as a gateway between your existing home/office network and the Mesh network.  You should connect the Pi to your home/office network via Ethernet cable (eth0 interface on the Raspberry Pi).
+In this section you will convert one of your mesh Raspberry Pi 3/4B devices to act as a gateway between your existing home/office network and the Mesh network.  You should connect the Pi to your home/office network via Ethernet cable (eth0 interface on the Raspberry Pi).
 
 As the gateway uses IP routing to selectively allow traffic to pass between the Mesh  and home/office networks the Mesh network needs to have a different address range.  The instructions use the following network details:
 
@@ -92,7 +92,7 @@ On the selected Pi that will be the gateway complete the following steps on the 
 
 ## Creating a bridge node
 
-In this section you will convert one of the mesh Raspberry Pi devices to a bridge (this cannot be the gateway device).  The bridge will connect the Raspberry Pi ethernet interface to the mesh network interface.
+In this section you will convert one of the mesh Raspberry Pi 3/4 B devices to a bridge (this cannot be the gateway device).  The bridge will connect the Raspberry Pi ethernet interface to the mesh network interface.
 
 A bridge node allows non-mesh devices to use the mesh nodes to connect to the home/office network and the Internet.  The gateway node provides the DHCP server that will also serve bridged devices, as DHCP requests flow over a bridge.
 
@@ -219,7 +219,7 @@ To verify that your mesh network is working you should have your laptop connecte
         wlan0       b8:27:eb:01:d4:bb   0.730s
     ```
 
-6. When using the batctl command it is not very helpful to show mac addresses for each of the mesh nodes.  It is possible to create a file which will map a macaddress to a hostname.  Create a file /etc/bat-hosts as root user and add the mac addresses and host names of all your mesh nodes.  The mac address used is the ether value of the wlan0 interface node on each node.  A sample /etc/bat-hosts file looks like:
+6. When using the batctl command it is not very helpful to show mac addresses for each of the mesh nodes.  It is possible to create a file which will map a mac address to a hostname.  Create a file /etc/bat-hosts as root user and add the mac addresses and host names of all your mesh nodes.  The mac address used is the ether value of the wlan0 interface node on each node.  A sample /etc/bat-hosts file looks like:
 
     ```text
     b8:27:eb:8e:ec:6c   bi-raspimesh01
@@ -327,7 +327,7 @@ From the home/office network you can only access the gateway device.  It is not 
 
 When you are connected via the mesh network you may find some services do not work when on the mesh, such as some wireless print services or media services.  This is because they rely on network broadcast traffic.  
 
-Broadcast traffic from the home/office network does not get sent to the mesh network.  If you need this behaviour then you can replace the gateway node with another bridge node to bridge the mesh network to your home/office network.  Bridging to your mesh network is not advisable if your home/office netowrk is a busy network, as you may flood the mesh network.
+Broadcast traffic from the home/office network does not get sent to the mesh network.  If you need this behaviour then you can replace the gateway node with another bridge node to bridge the mesh network to your home/office network.  Bridging to your mesh network is not advisable if your home/office network is a busy network, as you may flood the mesh network.
 
 ***
 *Quick links :*

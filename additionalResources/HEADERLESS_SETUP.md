@@ -7,7 +7,7 @@
 
 # Additional Resources - Headerless setup
 
-When you setup a Raspberry Pi, most documentation requires you to have a USB Keyboard, mouse and an HDMI monitor.  You then have access to the Raspberry Pi, using it like a normal computer.  However, this is not always convienient and it is possible to setup a Raspberry Pi just using your laptop.
+When you setup a Raspberry Pi, most documentation requires you to have a USB Keyboard, mouse and an HDMI monitor.  You then have access to the Raspberry Pi, using it like a normal computer.  However, this is not always convenient and it is possible to setup a Raspberry Pi just using your laptop.
 
 # Updating the SD Card image
 
@@ -23,7 +23,7 @@ Open a command line on your laptop and complete the following:
   - *Windows command prompt* :  ```type NUL >> ssh```
   - *Windows PowerShell* : ```echo $null >> ssh```
 
-If your laptop has Ethernet capability and you are working with a Pi 3 Model B(+) you don't need to do anything else to the SD card, you can eject it from your laptop and insert it into the Raspberry Pi.  Connect a standard Ethernet cable between your laptop and the Raspberry Pi, then power on the Raspberry Pi.
+If your laptop has Ethernet capability and you are working with a Raspberry Pi 3 or 4 Model B(+) you don't need to do anything else to the SD card, you can eject it from your laptop and insert it into the Raspberry Pi.  Connect a standard Ethernet cable between your laptop and the Raspberry Pi, then power on the Raspberry Pi.
 
 If you don't have Ethernet connectivity options then you need to enable WiFi on the Raspberry Pi.  To do this you need to add another file to the boot partition of the SD card called **wpa_supplicant.conf** and it should have the following content:
 
@@ -38,9 +38,9 @@ If you don't have Ethernet connectivity options then you need to enable WiFi on 
     }
     ```
 
-    You should relplace **network name** with the WiFi network name you want the Pi to connect to on boot and **password** with the WiFi network network password.
+    You should replace **network name** with the WiFi network name you want the Pi to connect to on boot and **password** with the WiFi network network password.
 
-Eject the SD card from your laptop and insert it into the Raspberry Pi.  If you are using a USB WiFi dongle on a Pi Zero or Pi 1 Model A+ then insert the donge and power on the Raspberry Pi
+Eject the SD card from your laptop and insert it into the Raspberry Pi.  If you are using a USB WiFi dongle on a Pi Zero or Pi 1 Model A+ then insert the dongle and power on the Raspberry Pi
 
 You can now access your Raspberry Pi [using the command line](COMMAND_LINE_ACCESS.md)
 
@@ -51,12 +51,11 @@ To enable network over USB you need to modify 2 files in the boot partition of t
 - Add a new line to the bottom of **config.txt** containing ```dtoverlay=dwc2```
 - Edit **cmdline.txt** and remove the resize filesystem option and replace it with ```modules-load=dwc2,g_ether```.  Ensure that the cmdline.txt file only has a single line and the content is similar to :
 
-    ```text
+    ```plain
     dwc_otg.lpm_enable=0 console=serial0,115200 console=tty1 root=PARTUUID=c1dc39e5-02 rootfstype=ext4 elevator=deadline fsck.repair=yes rootwait modules-load=dwc2,g_ether
     ```
 
 You can now eject the SD card from your laptop, insert it into the Raspberry Pi Zero(W) and then connect the USB cable to the USB port and your laptop to power the Raspberry Pi from your laptop. After a short delay you should be able to access your Raspberry Pi using the [command line](COMMAND_LINE_ACCESS.md)
-	
 
 One further action needs to be taken during the initial setup.  When you run the **raspi-config** command, you need to go into the Advanced options and select to expand the filesystem.  This normally happens automatically on first boot, but we removed that option to get the network over USB functionality working.
 
