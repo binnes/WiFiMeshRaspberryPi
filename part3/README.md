@@ -65,7 +65,7 @@ So, with the shortest pin on the left and the flat side on the right the pinout 
 
 You need to connect the Data In, +'ve voltage and ground to the Raspberry Pi as shown in the diagram.  Take care to ensure that the connections are as shown, as connecting the wrong pins can damage the LED:
 
-![RaspPi LED Wiring](../images/RaspPi_LED_Wiring.jpg)
+![RaspPi LED Wiring](../images/LED-pins.png)
 
 ### Connect the NeoPixel
 
