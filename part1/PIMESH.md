@@ -13,7 +13,7 @@ In this part of the workshop you will build your own mesh network over WiFi usin
 
 To create the mesh network on the Raspberry Pi we are using [batman-adv](https://www.open-mesh.org/projects/open-mesh/wiki), which is part of the standard linux kernel.  We are going to configure the batman-adv kernel module to take control of the WiFi interface **wlan0** and create a mesh network over WiFi.  Batman-adv will then create a new interface **bat0** to allow the Pi to send network traffic over the mesh network.  This will be explored more in the section on [network access](ROUTE.md)
 
-You need to complete the following steps on all the Raspberry Pis that you want to be part of the mesh network.  You can choose to use [headerless setup](/additionalResources/HEADERLESS_SETUP.md) or a keyboard, mouse and monitor to access the Pi command line.
+You need to complete the following steps on all the Raspberry Pis that you want to be part of the mesh network, including the gateway and bridge nodes.  You can choose to use [headerless setup](/additionalResources/HEADERLESS_SETUP.md) or a keyboard, mouse and monitor to access the Pi command line.
 
 ## Create the SD card and perform initial setup
 

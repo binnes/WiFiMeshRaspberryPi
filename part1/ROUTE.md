@@ -48,7 +48,7 @@ As the gateway uses IP routing to selectively allow traffic to pass between the 
 - netmask 255.255.255.0
 - gateway address 192.168.0.1
 
-The gateway will be the DHCP server for the mesh network.
+The gateway will be the DHCP server for the mesh network.  DHCP is the service that provides network configuration to devices on a network.  As the mesh network is a separate network from the home/office network, the DHCP service will provide devices with network configuration for the TCP network that runs over the mesh.
 
 On the selected Pi that will be the gateway complete the following steps on the command line:
 
