@@ -120,9 +120,9 @@ sudo npm -g install node-red-node-pi-neopixel
 On the Raspberry Pi with the DHT sensor attached, follow the BMC2835 install instructions at [http://www.airspayce.com/mikem/bcm2835/index.html](http://www.airspayce.com/mikem/bcm2835/index.html)
 
 ``` bash
-wget http://www.airspayce.com/mikem/bcm2835/bcm2835-1.58.tar.gz
-tar zxvf bcm2835-1.58.tar.gz
-cd bcm2835-1.58
+wget http://www.airspayce.com/mikem/bcm2835/bcm2835-1.62.tar.gz
+tar zxvf bcm2835-1.62.tar.gz
+cd bcm2835-1.62
 ./configure
 make
 sudo make check
