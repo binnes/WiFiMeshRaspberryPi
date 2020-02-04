@@ -32,7 +32,7 @@ In addition to the Raspberry Pis, you need:
 
 ![mesh diagram](/images/PiMesh.png)
 
-The following Raspberry Pi boards have been tested (using [Raspbian Stretch Lite](https://www.raspberrypi.org/downloads/raspbian/) dated  8th April 2019) for the following roles in the Mesh network:
+The following Raspberry Pi boards have been tested (using [Raspbian Buster Lite](https://www.raspberrypi.org/downloads/raspbian/) dated 26th September 2019) for the following roles in the Mesh network:
 
 - Raspberry Pi 3 Model B : Gateway Node, Bridge Node or Mesh Node (additional USB WiFi dongle needed for WiFi connected Gateway or Bridge Node)
 - Raspberry Pi 3 Model B+ : Gateway Node, Bridge Node or Mesh Node (additional USB WiFi dongle needed for WiFi connected Gateway or Bridge Node)
