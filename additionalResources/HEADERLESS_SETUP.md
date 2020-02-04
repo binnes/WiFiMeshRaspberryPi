@@ -27,18 +27,18 @@ If your laptop has Ethernet capability and you are working with a Raspberry Pi 3
 
 If you don't have Ethernet connectivity options then you need to enable WiFi on the Raspberry Pi.  To do this you need to add another file to the boot partition of the SD card called **wpa_supplicant.conf** and it should have the following content:
 
-    ```plain
-    ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
-    update_config=1
-    country=GB
-    network={
-        ssid="network name"
-        scan_ssid=1
-        psk="password"
-    }
-    ```
+```text
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+country=GB
+network={
+    ssid="network name"
+    scan_ssid=1
+    psk="password"
+}
+```
 
-    You should replace **network name** with the WiFi network name you want the Pi to connect to on boot and **password** with the WiFi network network password.
+You should replace **network name** with the WiFi network name you want the Pi to connect to on boot and **password** with the WiFi network network password.
 
 Eject the SD card from your laptop and insert it into the Raspberry Pi.  If you are using a USB WiFi dongle on a Pi Zero or Pi 1 Model A+ then insert the dongle and power on the Raspberry Pi
 
@@ -51,7 +51,7 @@ To enable network over USB you need to modify 2 files in the boot partition of t
 - Add a new line to the bottom of **config.txt** containing ```dtoverlay=dwc2```
 - Edit **cmdline.txt** and remove the resize filesystem option and replace it with ```modules-load=dwc2,g_ether```.  Ensure that the cmdline.txt file only has a single line and the content is similar to :
 
-    ```plain
+    ```
     dwc_otg.lpm_enable=0 console=serial0,115200 console=tty1 root=PARTUUID=c1dc39e5-02 rootfstype=ext4 elevator=deadline fsck.repair=yes rootwait modules-load=dwc2,g_ether
     ```
 
