@@ -53,7 +53,9 @@ After importing the flow you will need to add some credentials so the applicatio
 
 4. Open the configuration of either of the MQTT Nodes, then press the pencil icon next to the server field to access the server configuration.
 
-    The values should be set as detailed below, but the **orgid** needs to be changed to the unique 6 characted org ID for your instance of the platform.  You can find this at the top of the IoT console, or in the setting, then Identity section.
+    The values should be set as detailed below, but the **orgId** needs to be changed to the unique 6 characted org ID for your instance of the platform.  You can find this at the top of the IoT console, or in the setting, then Identity section.
+
+    ![orgId](/images/orgId.png)
 
     * Connection tab:
       * Server : **orgId**.messaging.internetofthings.ibmcloud.com
@@ -65,8 +67,9 @@ After importing the flow you will need to add some credentials so the applicatio
         * Click **Update** to close the TLC configuration panel
       * Client ID : A:**orgId**:statusApp
     * Security tab
-      * The Username and Password are generated from the Internet of Things Web UI:
-        * In the IoT console, switch to the Apps section, then press **+ Generate API Key**
+      * The Username and Password are generated from the Internet of Things Web UI:  
+        * In the IoT console, switch to the Apps section, then press **+ Generate API Key**  
+          ![IoT Menu](/images/iotMenu.png)
           * Enter a description ("NR MQTT Nodes") then press Next
           * Select Standard Application for the Role then press Generate Key
       * The Username is the API Key from the newly generate API Key in the IoT platform console
