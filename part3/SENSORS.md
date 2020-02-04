@@ -57,7 +57,7 @@ You need to connect the Data In, +'ve voltage and ground to the Raspberry Pi as 
 
 ![RaspPi LED Wiring](../images/LED-pins.png)
 
-### Connect the NeoPixel
+### Step 2 - Connect the NeoPixel
 
 Connect three female to female jumper wires to the NeoPixel and then follow the Raspberry Pi [pinout diagram](https://pinout.xyz/#) to connect the jumpers to :
 
