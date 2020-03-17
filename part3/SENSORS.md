@@ -155,7 +155,7 @@ Connect your browser to Node-RED running on the raspberry pi with the DHT sensor
 
 * Select an **Inject** node from the left palette and drag it to your flow canvas.
 * Select a **rpi-dht22** node from the palette and drag it to your flow. Double-click on the **rpi-dht22** node. In the Edit dialog, select type of DHT sensor (DHT11 / DHT22) and the Pin number (15) that you have connected the female jumper wire to the Raspberry Pi (Pin 15 suggested above). Press the **Done** button to close the Edit dialog.
-  ![DHT config](/images/dhtConfig.png)
+  ![DHT config](/images/DHTConfig.png)
 * Select a **Debug** node from the palette and drag it to your flow.
 * Wire the three nodes as suggested in the screen shot.
 * Press the red **Deploy** button.
