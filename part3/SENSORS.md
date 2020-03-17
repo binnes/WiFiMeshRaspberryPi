@@ -9,7 +9,7 @@
 
 ## Section 1 - Connect DHT Temperature Sensor and NeoPixel LED to Raspberry Pi
 
-You can attach the DHT temperature and humidity sensor to any Pi that is part of the mesh network or the bridge Pi. Similarly, you can attach the RGB LED to any pi that is part of the mesh network or the bridge Pi. You can attatch the DHT sensor and RGB LED to the same Pi or use different Pis.
+You can attach the DHT temperature and humidity sensor to any Pi that is part of the mesh network or the bridge Pi. Similarly, you can attach the RGB LED to any pi that is part of the mesh network or the bridge Pi. You can attach the DHT sensor and RGB LED to the same Pi or use different Pis.
 
 ### Step 1 - Connect the DHT sensor to your Raspberry Pi
 
@@ -179,7 +179,7 @@ Connect your browser to Node-RED running on the raspberry pi with the RGB LED co
 
 ![Node-RED NeoPixel Test Flow](/images/Node-RED-NeoPixel-flow.png)
 
-The NeoPixel Test flow uses **Inject** nodes and **Change** nodes to send RBG color values to the NeoPixel LED. 
+The NeoPixel Test flow uses **Inject** nodes and **Change** nodes to send RBG color values to the NeoPixel LED.
 
 * From the Node-RED menu (☰), select Import then copy and paste the solution flow below into the Import nodes dialog
 
@@ -199,4 +199,3 @@ If the red and green colours are switched, then open the configuration of the Ne
 **Part 3** - [**Connect Sensors**](SENSORS.md) - [IoT Platform](IOT_PLATFORM.md)
 ***
 [Home](/README.md) - [Part 1](/part1/README.md) - [Part 2](/part2/README.md) - [**Part 3**](/part3/README.md) - [Resources](/additionalResources/README.md)
-

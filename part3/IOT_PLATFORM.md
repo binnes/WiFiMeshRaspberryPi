@@ -89,7 +89,7 @@ This flow subscribes to the Raspberry Pi Mesh Node sensor MQTT data. As this tem
 
 On the Raspberry Pi with the DHT sensor connected, a Node-RED flow will read the sensor value every 10 seconds, then format the data into a JSON format string to send to the IoT platform.
 
-1. Open Node-RED running on the Raspberry Pi with the DHT sensor connected **http://host_name.local:1880** ot **http://IP_address:1880**. 
+1. Open Node-RED running on the Raspberry Pi with the DHT sensor connected **http://host_name.local:1880** ot **http://IP_address:1880**.
 
 2. Import the sample flow to read the DHT sensor and send the data to the IoT platform:
 
@@ -124,7 +124,7 @@ On the Raspberry Pi with the DHT sensor connected, a Node-RED flow will read the
 
 On the Raspberry Pi with the LED connected, a Node-RED flow will subscribe to receive commands specifying the colour the LED should be showing - the commands are created by the Node-RED application running in the cloud.
 
-1. Open Node-RED running on the Raspberry Pi with the DHT sensor connected **http://host_name.local:1880** ot **http://IP_address:1880**. 
+1. Open Node-RED running on the Raspberry Pi with the DHT sensor connected **http://host_name.local:1880** ot **http://IP_address:1880**.
 
 2. Import the sample flow to read the DHT sensor and send the data to the IoT platform:
 
@@ -161,4 +161,3 @@ On the Raspberry Pi with the LED connected, a Node-RED flow will subscribe to re
 **Part 3** - [Connect Sensors](SENSORS.md) - [**IoT Platform**](IOT_PLATFORM.md)
 ***
 [Home](/README.md) - [Part 1](/part1/README.md) - [Part 2](/part2/README.md) - [**Part 3**](/part3/README.md) - [Resources](/additionalResources/README.md)
-
