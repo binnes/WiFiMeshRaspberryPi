@@ -2,7 +2,7 @@
 ***
 [Home](/README.md) - [Part 1](/part1/README.md) - [Part 2](/part2/README.md) - [Part 3](/part3/README.md) - [**Resources**](/additionalResources/README.md)
 ***
-**Resources** - [**Setup**](PREREQUISITES_AND_SETUP.md) - [Headerless Setup](HEADERLESS_SETUP.md) - [Command line access](COMMAND_LINE_ACCESS.md)
+**Resources** - [**Setup**](PREREQUISITES_AND_SETUP.md) - [IoT Starter App](IOT_STARTER_APP.md) - [Headerless Setup](HEADERLESS_SETUP.md) - [Command line access](COMMAND_LINE_ACCESS.md)
 ***
 
 # Additional Resources - Prerequisites and setup
@@ -93,9 +93,11 @@ To complete [part 3](/part3/README.md) you need to have an IBM Cloud account.  T
 
 To sign up for the IBM cloud follow [this link](https://cloud.ibm.com/login)
 
+You also need to deploy an Internet of Things starter application.  Follow [these instructions](IOT_STARTER_APP.md) to deploy the application into your account.
+
 ***
 *Quick links :*
 ***
-**Resources** - [**Setup**](PREREQUISITES_AND_SETUP.md) - [Headerless Setup](HEADERLESS_SETUP.md) - [Command line access](COMMAND_LINE_ACCESS.md)
+**Resources** - [**Setup**](PREREQUISITES_AND_SETUP.md) - [IoT Starter App](IOT_STARTER_APP.md) - [Headerless Setup](HEADERLESS_SETUP.md) - [Command line access](COMMAND_LINE_ACCESS.md)
 ***
 [Home](/README.md) - [Part 1](/part1/README.md) - [Part 2](/part2/README.md) - [Part 3](/part3/README.md) - [**Resources**](/additionalResources/README.md)

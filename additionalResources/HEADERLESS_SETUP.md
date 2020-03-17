@@ -2,7 +2,7 @@
 ***
 [Home](/README.md) - [Part 1](/part1/README.md) - [Part 2](/part2/README.md) - [Part 3](/part3/README.md) - [**Resources**](/additionalResources/README.md)
 ***
-**Resources** - [Setup](PREREQUISITES_AND_SETUP.md) - [**Headerless Setup**](HEADERLESS_SETUP.md) - [Command line access](COMMAND_LINE_ACCESS.md)
+**Resources** - [Setup](PREREQUISITES_AND_SETUP.md) - [IoT Starter App](IOT_STARTER_APP.md) - [**Headerless Setup**](HEADERLESS_SETUP.md) - [Command line access](COMMAND_LINE_ACCESS.md)
 ***
 
 # Additional Resources - Headerless setup
@@ -62,6 +62,6 @@ One further action needs to be taken during the initial setup.  When you run the
 ***
 *Quick links :*
 ***
-**Resources** - [Setup](PREREQUISITES_AND_SETUP.md) - [**Headerless Setup**](HEADERLESS_SETUP.md) - [Command line access](COMMAND_LINE_ACCESS.md)
+**Resources** - [Setup](PREREQUISITES_AND_SETUP.md) - [IoT Starter App](IOT_STARTER_APP.md) - [**Headerless Setup**](HEADERLESS_SETUP.md) - [Command line access](COMMAND_LINE_ACCESS.md)
 ***
 [Home](/README.md) - [Part 1](/part1/README.md) - [Part 2](/part2/README.md) - [Part 3](/part3/README.md) - [**Resources**](/additionalResources/README.md)
