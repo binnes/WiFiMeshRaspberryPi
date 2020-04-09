@@ -131,7 +131,8 @@ On the selected bridge node run the following on a command line:
     sudo ifconfig wlan0 up
     sudo ifconfig bat0 up
 
-    # Start DHCP client on bridge interface
+    # Restart DHCP now bridge and mesh network are up
+    sudo dhclient -r br0
     sudo dhclient br0
     ```
 
