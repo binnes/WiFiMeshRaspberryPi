@@ -14,7 +14,7 @@ Note the configuration below leaves interface eth0 in the configuration, so you 
 ## Configuring the Access point and bridging to br0 interface
 
 1. Install additional software to run the access point using command ```sudo apt-get install -y hostapd```
-2. Edit file **/etc/hostapd/wlan1.conf** as root user and set the content to:, you need to create this file, and set the user and set the content to: as:
+2. Edit file **sudo vi /etc/hostapd/wlan1.conf** as root user and set the content to:
 
     ```text
     interface=wlan1
@@ -37,7 +37,7 @@ Note the configuration below leaves interface eth0 in the configuration, so you 
 
     The above configuration sets up a 2.4GHz network on channel 7, again, you can change all the details to match your WiFi dongle and preferred network.  You can find details of all possible options for the config file [here](https://w1.fi/cgit/hostap/plain/hostapd/hostapd.conf)
 
-3. Edit file **/etc/default/hostapd** as root user and set the content to:, which is used by the startup script for the Access Point service, so it looks like :
+3. Edit file **/etc/default/hostapd** as root user.  ```sudo vi /etc/default/hostapd``` or ```sudo nano /etc/default/hostapd``` and set the content to:
 
     ```text
     # Defaults for hostapd initscript
@@ -69,7 +69,7 @@ Note the configuration below leaves interface eth0 in the configuration, so you 
     denyinterfaces wlan0 eth0 bat0 wlan1
     ```
 
-5. Update the **~/start-batman-adv.sh** file to contain the following:
+5. Update the **~/start-batman-adv.sh** file ```vi ~/start-batman-adv.sh``` or ```nano ~/start-batman-adv.sh```, so the file contains the following:
 
     ```text
     #!/bin/bash

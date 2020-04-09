@@ -99,7 +99,7 @@ A bridge node allows non-mesh devices to use the mesh nodes to connect to the ho
 On the selected bridge node run the following on a command line:
 
 1. Install the bridge utilities using command : ```sudo apt-get install -y bridge-utils```
-2. Create an interface config for the eth0 interface.  This will allow the ethernet port to be *hotplugged*, which means the ethernet cable can be connected and disconnected.  Do this by creating file /etc/network/interfaces.d/eth0 as root user and setting the content to:
+2. Create an interface config for the eth0 interface.  This will allow the ethernet port to be *hotplugged*, which means the ethernet cable can be connected and disconnected.  Do this by creating file **/etc/network/interfaces.d/eth0** as root user ```sudo vi /etc/network/interfaces.d/eth``` or ```sudo nano /etc/network/interfaces.d/eth``` and setting the content to:
 
     ```text
     auto eth0
@@ -107,13 +107,13 @@ On the selected bridge node run the following on a command line:
     iface eth0 inet manual
     ```
 
-3. Modify the /etc/dhcpcd.conf file as root use and change the last line to:
+3. Modify the /etc/dhcpcd.conf file as root ```sudo vi /etc/dhcpcd.conf``` or ```sudo nano /etc/dhcpcd.conf``` and change the last line to:
 
     ```text
     denyinterfaces wlan0 eth0 bat0
     ```
 
-4. Update the configuration file ~/start-batman-adv.sh to setup the bridge
+4. Update the configuration file ~/start-batman-adv.sh to setup the bridge ```vi ~/start-batman-adv.sh``` or ```nano ~/start-batman-adv.sh``` and ensure the content matches:
 
     ```text
     #!/bin/bash
@@ -130,6 +130,9 @@ On the selected bridge node run the following on a command line:
     # Activates batman-adv interfaces
     sudo ifconfig wlan0 up
     sudo ifconfig bat0 up
+
+    # Start DHCP client on bridge interface
+    sudo dhclient br0
     ```
 
 5. Shutdown the bridge pi using command ```sudo shutdown -h now```
